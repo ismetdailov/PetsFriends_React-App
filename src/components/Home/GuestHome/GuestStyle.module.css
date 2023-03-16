@@ -1,0 +1,9 @@
+
+body{
+    max-height: 100%;
+    max-width: 75% ;
+    background-image: url("/public/Images/guestHome.png");
+}
+footer{
+    bottom: 0%;
+}
