@@ -1,10 +1,16 @@
-import Guest from "./components/Home/GuestHome/Guest"
-
+import Guest from "./components/Home/GuestHome/Guest";
+import Footer from "./components/Footer/footer"
+import "./App.css"
 function App() {
   return (
-     <div className="App">
-       <Guest/>
-     </div>
+    <div className="container">
+    <main>
+      <Guest />
+    </main>
+    <footer>
+    <Footer/>
+    </footer>
+    </div>
   );
 }
 
