@@ -3,14 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Emoji:wght@300;400;500;600;700&display=swap');
 
 *{
+  font-family:  sans-serif;
   font-family: 'Lato', sans-serif;
-font-family:  sans-serif;
 }
 
 
 
 
 body {
+  width: 100%;
+  height: auto;
   background-color: #201C1C;
   display: table;
   grid-template-areas:

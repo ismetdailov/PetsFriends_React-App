@@ -51,7 +51,7 @@ main {
 .guestColumInfo {
   border: 10px;
   border-style: dashed;
-  border-color: #F4D03F;
+  border-color: rgb(255,255,0);
   box-sizing: border-box;
   display: table;
   flex-wrap: wrap;

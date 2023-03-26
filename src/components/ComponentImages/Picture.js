@@ -5,7 +5,7 @@ import logo from "../ComponentImages/logo ping.png"
 function Image () {
     return <>
     {/* <img src={logoping} alt=''></img>, */}
-    <img src={logo} alt=""/>    
+    <img src={logo} alt="" />    
     </>
 }
 

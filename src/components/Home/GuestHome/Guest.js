@@ -3,7 +3,7 @@ import Image from '../../ComponentImages/Picture.js';
 import GuesImage from '../../ComponentImages/images.js';
 import '../GuestHome/GuestStyle.css'
 import logo from'../../ComponentImages/logo1.png'
-
+import {Link} from 'react-router-dom'
 function Guest() {
     return (
         <>
@@ -53,7 +53,7 @@ function Guest() {
                     <h1 className="aboutSite">This is site about our pets and their and our friend this is site for fun</h1>
                 </div>
                 <div className="loginRegisterContainer">
-                    <button className="loginBtn">Login</button>
+                 <Link to='/login'><button className="loginBtn">Login</button></Link>
                     <button className="registerBtn">Register</button>
                 </div>
             </div>

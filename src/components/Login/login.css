@@ -1,0 +1,293 @@
+.modalContainer {
+    margin: auto;
+    margin-top: 4%;
+    box-sizing: border-box;
+    align-content: center;
+    display: block;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(255, 255, 0);
+    /* background-image: url("../ComponentImages/logo1.png"); */
+    border-radius: 45px;
+    border-style: double;
+    border-width: 35px;
+
+}
+
+.imageContainer {
+
+    margin: auto;
+    position: relative;
+    width: 80%;
+    padding-top: 8%;
+    
+}
+
+.logoContainer {
+    margin: auto;
+    width: 70%;
+    background-color: #201C1C;
+    border-radius: 50px;
+    border-style: double;
+    border-color: rgb(255, 255, 0);
+    border-color: aqua;
+    border-width: 25px;
+}
+
+.containerImage {
+    margin: auto;
+    padding: 5% 5% 5% 5%;
+    width: 50%;
+    height: 50%;
+    background-color: greenyellow;
+    background-color: rgb(255, 255, 0);
+    margin-top: 1%;
+    border-radius: 200px;
+    border-width: 30px;
+    border-style: groove;
+    border-color: aqua;
+}
+
+.labelContainer {
+    margin: auto;
+    padding-top: 2%;
+    width: 50%;
+    padding-left: 2%;
+    margin-top: 2%;
+    background-color: rgb(255, 255, 0);
+    border-radius: 25px;
+}
+
+.emailContainer {
+    margin: auto;
+}
+
+.passwordContainer {
+    margin: auto;
+}
+
+.remember {
+    margin: auto;
+}
+
+.signUp {
+    margin: auto;
+}
+
+.emailContainer label,
+input {
+    font-size: 35px;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.emailContainer label {
+    padding-left: 40%;
+}
+
+.emailContainer input {
+    border-radius: 25px;
+    border-style: double;
+    border-width: 10px;
+    color: #201C1C;
+}
+
+.email {
+    background-color: rgb(255, 255, 0);
+    text-decoration: double;
+    text-decoration-color: rgb(255, 255, 0);
+}
+
+.passwordContainer {
+    background-color: rgb(255, 255, 0);
+    text-decoration: double;
+    text-decoration-color: rgb(255, 255, 0);
+}
+
+.passwordContainer input {
+    border-radius: 25px;
+    border-width: 10px;
+    border-style: double;
+    color: #201C1C;
+    background-color: rgb(255, 255, 0);
+}
+
+.passwordContainer label {
+    position: relative;
+    font-size: 35px;
+    width: 100%;
+    padding-left: 35%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.rememberContainer {
+    background-color: #201C1C;
+    color: rgb(255, 255, 0);
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 25px;
+    height: 30%;
+    width: 70%;
+    padding-left: 2%;
+}
+
+.rememberContainer label {
+    font-size: 25px;
+    width: 30%;
+}
+
+.remember {
+    font-size: 40px;
+    height: 25px;
+    width: 50px;
+}
+.forgotContainer{
+    width: 90%;
+    margin: auto;
+    padding-left: 10%;
+    margin-top: 2%;
+    border-style: double;
+    border-radius: 25px;
+   font-size: large;
+    height: auto;
+    background-color: #201C1C;
+    color: rgb(255, 255, 0);
+}
+.forgotContainer p{
+    color: rgb(255, 255, 0);
+}
+.closeContainer{
+    margin: auto;
+    float: right;
+    padding-top: 1%;
+    padding-right: 1%;
+    border-radius: 25px;
+    height: 5%;
+    /* color: rgb(255, 255, 0); */
+}
+.closeBtn{
+    float: right;
+    font-size: 35px;
+    border-radius: 5px;
+
+}
+.closeIcon{
+    font-size: 45px;
+}
+.icon{
+
+    margin: auto;
+    font-size: x-large;
+    padding-left: 2%;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 5%;
+}
+.emailIcon{
+    margin: auto;
+    font-size: x-large;
+    padding-left: 2%;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 5%;
+}
+.signUp{
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
+.signInwhithGoogle{
+    background-color: #201C1C;
+    color: rgb(255, 255, 0);
+    border-radius: 25px;
+    margin: auto;
+    width: 30%;
+    padding: 7px 7px 7px 7px;
+    padding-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    
+}
+.registerContainer{
+    margin: auto;
+    width: 30%;
+    border-radius: 25px;
+    background-color: #201C1C;
+    color: rgb(255, 255, 0);
+    padding: 7px 7px 7px 7px;
+    padding-left: 12%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+}
+.registerSpan p{
+    margin: auto;
+   color: rgb(255, 255, 0)
+}
+.googleSpan p{
+
+    margin: auto;
+    color: rgb(255, 255, 0);
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .signUp{
+        display: table;
+    }
+    .modalContainer{
+        width: 100%;
+    }
+    .labelContainer{
+        width: 100%;
+    }
+    .emailContainer{
+        width: 100%;
+    }
+    .rememberContainer{
+        width: 90%;
+    }
+    .signInwhithGoogle{
+        width: 80%;
+    }
+    .registerContainer{
+        width: 80%;
+    }
+  
+  }
+  
+  @media screen and (max-width: 991px) {
+    .signUp{
+        display: table;
+    }
+    .modalContainer{
+        width: 100%;
+    }
+    .labelContainer{
+        width: 100%;
+    }
+    .emailContainer{
+        width: 100%;
+    }
+    .rememberContainer{
+        width: 90%;
+    }
+    .signInwhithGoogle{
+        width: 80%;
+    }
+    .registerContainer{
+        width: 80%;
+    }
+  
+  }
