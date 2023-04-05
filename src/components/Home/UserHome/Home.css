@@ -1,0 +1,207 @@
+/* navbar */
+.mainContainer {
+    display: grid;
+}
+
+.navbar {
+    margin-top:0 !important;
+    display: flex;
+    width: 100%;
+    background-color: #d2e10c;
+    border-bottom:dashed ;
+    border-style: double;
+    border-width: 10px;
+    border-radius: 25px;
+}
+.searchInput{
+    width: 110%;
+}
+
+.leftNavbar {
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+    display: inline-block;
+    display: flex;
+    list-style: none;
+    padding-left: 0.5%;
+    height: 100%;
+}
+
+.centerNavbar {
+    margin:auto;
+    margin-top:0 !important;
+    display: inline-block;
+    display: flex;
+    height: 100%;
+    list-style: none;
+}
+
+.rightNavbar {
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    display: inline-block;
+    display: flex;
+    list-style: none;
+    height: 100%;
+}
+
+li {
+    padding-left: 3%;
+    margin-bottom: 2%;
+}
+
+.searchElement {
+    width: 50%;
+}
+
+.iconsContainer {
+    position: relative;
+    padding-top: 3%;
+    
+}
+
+.iconsContainer i {
+    z-index: 999;
+    position: absolute;
+    color: #120edf;
+    top: 18%;
+    left: 98%;
+    
+}
+.homeIconLogo{
+    padding-top: 0%;
+    padding-left: 0%;
+    color: #ef0067;
+    height: 10%;
+}
+.homeIconLogo:hover{
+    color: #120edf;
+}
+.homeIcon {
+    color: #ef0067;
+    margin: auto;
+    font-size: xx-large;
+}
+.pawIcon{
+    color: #ef0067;
+    margin: auto;
+    font-size: xx-large;
+    padding-left: 30%;
+}
+.logoImage{
+    height: 3rem;
+    padding-right: 0%;
+    padding-top: 5%;
+    margin-top: 2%;
+    padding-bottom: 0%;
+    width: auto;
+}
+.profileImageLi{
+    width: 19%;
+    padding-top: 1%;
+    margin-left: 20%;
+}
+.rightIcons{
+    margin: auto;
+    color: #1f92eb;
+    font-size: xx-large;
+    margin-right: 5%;
+    float: right;
+}
+/* main */
+
+.mainSection{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+.leftSidebar{
+    margin: auto;
+    display: grid;
+    width: 25%;
+    float: left;
+}
+.postSection{
+    margin: auto;
+    display: grid;
+    width: 50%;
+    float: left;
+}
+.rightSide{
+    margin: auto;
+    display: grid;
+    width: 25%;
+    float: right;
+}
+.leftContainer{
+    margin: auto;
+    display: flex;
+    width: 90%;
+}
+.centerContainer{
+    margin: auto;
+    display: flex;
+    width: 90%;
+    background-color: #fc7bfc;
+    background-image: url("../../ComponentImages/logo1.png");
+    
+
+
+}
+.rightContainer{
+    margin: auto;
+    display: flex;
+
+}
+.leftUl{
+
+}
+.rightUl{
+
+}
+.createPsotContainer{
+    margin: auto;
+    width: 100%;
+    height: 1%;
+}
+.modalcreatePostContainer{
+    margin: auto;
+    margin-top: 2%;
+    align-content: center;
+    left: 0;
+    top: 0;
+    width: 70%;
+    /* background-color: rgb(255, 255, 0); */
+    background-color: rgb(26, 171, 133);
+    /* background-image: url("../../ComponentImages/logo1.png"); */
+    background-size: 10%;
+    border-radius: 55px;
+    border-style: dashed;
+    border-width: 7px;
+    border-color: rgb(255, 255, 0);
+}
+.modalcreatePostContainer :hover{
+    /* background-image: url("../../ComponentImages/logo ping.png"); */
+    background-color: #ef0067;
+    background-size: 10%;
+    border-radius: 55px;
+    border-width: 7px;
+}
+.postContainer{
+    margin: auto;
+    display: flex;
+    width: 100%;
+}
+.postImage{
+    float: left;
+    width: 10%;
+}
+.createPostBtn{
+    margin: auto;
+    color: aliceblue;
+
+}

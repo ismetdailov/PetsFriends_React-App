@@ -6,14 +6,12 @@
 }
 .container {
   box-sizing: border-box;
-  height: 100%;
   margin: 0%;
   padding: 0%;
 }
 
 main {
   box-sizing: border-box;
-  height: 100%;
 }
 
 /* Guest Section */
@@ -22,11 +20,10 @@ main {
   border-radius: 50px;
   box-sizing: border-box;
   margin: auto;
-  padding: 2% 2% 2% 2%;
-  height: 100%;
   width: 90%;
   padding-left: 0%;
-  box-sizing: border-box;
+  border-bottom:double;
+  margin-top: 1%;
 }
 
 .emptySpace {
@@ -40,7 +37,6 @@ main {
 }
 
 .loginRegisterContainer {
-  margin-top: 3%;
   border-color: #201C1C;
   border-radius: 50px;
   background-color: rgb(255,255,0);
@@ -124,49 +120,48 @@ margin-top: 5%;
 }
 
 .loginRegisterContainer {
-
+  caret-color: #201C1C;
   box-sizing: border-box;
   margin: auto;
   width: 60%;
   padding-left: 10%;
+  border: 10px;
+  border-style:double;
+  margin-bottom: 1%;
 }
 
 .registerBtn {
-  box-sizing: border-box;
-  font-size: 30px;
   margin: auto;
   margin-left: 10%;
-  height: 3rem;
   width: 40%;
-  background-color: rgb(22, 68, 255);
+  background-color: #0844f7;
   border-radius: 20px;
-  margin-bottom: 2rem;
+  margin-top: 2%;
+  margin-bottom: 2%;
   text-align: center;
+  color: aliceblue;
+  caret-color: #ef0067;
 
 }
 
 .loginBtn {
-  box-sizing: border-box;
-  font-size: 30px;
   margin: auto;
   margin-left: 0%;
-  height: 3%;
   width: 40%;
-  background-color: rgb(14, 235, 47);
+  background-color: #ef0067;
   border-radius: 20px;
   margin-bottom: 2%;
   text-align: center;
+  color: aliceblue;
+  caret-color: #0844f7;
 }
 
 .aboutSite {
-  padding-left: 10%;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  font-size: 35px;
   margin: auto;
+  padding: 2% 2% 2% 2% ;
+  flex-wrap: wrap;
   margin-left: 0%;
   margin-bottom: 2%;
-  height: 100%;
 }
 
 
@@ -216,15 +211,11 @@ margin-top: 5%;
     width: 100%;
   }
 
-  .aboutSiteInfo {
-    margin: auto;
-    width: 100%;
-  }
+  
 
   .loginRegisterContainer {
     margin: auto;
     padding-bottom: 2%;
-    padding-top: 0px;
     padding-left: 25%;
     width: 100%;
   }
@@ -235,23 +226,14 @@ margin-top: 5%;
     margin-top: 15px;
     width: 55%;
   }
-
-  .loginBtn {
-    background-color: yellowgreen;
-    font-size: 30px;
-    margin: auto;
-    width: 55%;
+  .loginBtn :hover{
+      background-color: grey;
+  color: rgb(31, 136, 228);
 
   }
 
-  .aboutSiteInfo {
-    
-    padding: 55px 55px 0px 0px;
-  }
-  .aboutSite{
-    
-    font-size: 40px;
-  }
+
+
 
 }
 
@@ -301,11 +283,6 @@ margin-top: 5%;
     width: 100%;
   }
 
-  .aboutSiteInfo {
-    margin: auto;
-    width: 100%;
-  }
-
   .loginRegisterContainer {
     margin: auto;
     padding-bottom: 2%;
@@ -320,6 +297,7 @@ margin-top: 5%;
     margin-top: 15px;
     width: 55%;
     margin-left: 0%;
+    caret-color: aqua;
   }
 
   .loginBtn {
@@ -333,8 +311,6 @@ margin-top: 5%;
     border-style: dashed;
     border-color: aqua;
   }
-  .aboutSiteInfo {
-    padding: 55px 55px 0px 0px;
-  }
+ 
  
 }

@@ -1,28 +1,26 @@
 .modalContainer {
     margin: auto;
-    margin-top: 4%;
-    box-sizing: border-box;
+    margin-top: 2%;
     align-content: center;
     display: block;
-    z-index: 1;
     left: 0;
     top: 0;
     width: 50%;
-    height: 100%;
-    background-color: rgb(255, 255, 0);
-    /* background-image: url("../ComponentImages/logo1.png"); */
+    /* background-color: rgb(255, 255, 0); */
+    background-color: aqua;
+    background-image: url("../ComponentImages/logo1.png");
     border-radius: 45px;
     border-style: double;
     border-width: 35px;
+    border-color: rgb(255, 255, 0);
 
 }
 
 .imageContainer {
 
     margin: auto;
-    position: relative;
-    width: 80%;
-    padding-top: 8%;
+    width: 70%;
+    padding-top: 2%;
     
 }
 
@@ -79,7 +77,6 @@
 
 .emailContainer label,
 input {
-    font-size: 35px;
     width: 100%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -116,8 +113,6 @@ input {
 }
 
 .passwordContainer label {
-    position: relative;
-    font-size: 35px;
     width: 100%;
     padding-left: 35%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -135,12 +130,10 @@ input {
 }
 
 .rememberContainer label {
-    font-size: 25px;
     width: 30%;
 }
 
 .remember {
-    font-size: 40px;
     height: 25px;
     width: 50px;
 }
@@ -151,10 +144,13 @@ input {
     margin-top: 2%;
     border-style: double;
     border-radius: 25px;
-   font-size: large;
     height: auto;
     background-color: #201C1C;
     color: rgb(255, 255, 0);
+}
+.formContainer{
+padding-left: 0px;
+margin-left: 15%;
 }
 .forgotContainer p{
     color: rgb(255, 255, 0);
@@ -170,17 +166,13 @@ input {
 }
 .closeBtn{
     float: right;
-    font-size: 35px;
     border-radius: 5px;
 
 }
-.closeIcon{
-    font-size: 45px;
-}
+
 .icon{
 
     margin: auto;
-    font-size: x-large;
     padding-left: 2%;
     height: 100%;
     width: 100%;
@@ -188,7 +180,6 @@ input {
 }
 .emailIcon{
     margin: auto;
-    font-size: x-large;
     padding-left: 2%;
     height: 100%;
     width: 100%;
@@ -198,42 +189,60 @@ input {
     display: flex;
     margin: auto;
     width: 100%;
+    border-radius: 45px;
+    background-color: rgb(255, 255, 0);
+    margin-bottom: 4%;
 }
 .signInwhithGoogle{
-    background-color: #201C1C;
-    color: rgb(255, 255, 0);
+    background-color: aqua;
+    color: aqua;
     border-radius: 25px;
     margin: auto;
-    width: 30%;
+    width: 45%;
     padding: 7px 7px 7px 7px;
-    padding-left: 5%;
-    margin-top: 2%;
+    padding-left: 0%;
     margin-bottom: 2%;
+    text-align: center;
+    
     
 }
 .registerContainer{
     margin: auto;
-    width: 30%;
+    width: 45%;
     border-radius: 25px;
-    background-color: #201C1C;
-    color: rgb(255, 255, 0);
+    background-color: aqua;
+    color: #201C1C;
     padding: 7px 7px 7px 7px;
-    padding-left: 12%;
     margin-top: 2%;
     margin-bottom: 2%;
+    text-align: center;
 
 }
 .registerSpan p{
     margin: auto;
-   color: rgb(255, 255, 0)
+   color: #201C1C;
+  text-decoration: none;
+   
 }
 .googleSpan p{
 
     margin: auto;
-    color: rgb(255, 255, 0);
+    color: #201C1C;
 }
 
-
+.loginContainer{
+    margin: auto;
+    padding-top: 2%;
+    padding-left: 35%;
+    content: center;
+}
+.LoginBtn{
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    border-radius: 25px;
+    background-color: aqua;
+}
 
 
 

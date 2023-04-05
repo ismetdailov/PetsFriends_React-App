@@ -24,7 +24,24 @@ body {
   height: 100vh;
   gap: 10px;
 }
-
+.overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}
 
 /* footer {
   grid-area: footer;
