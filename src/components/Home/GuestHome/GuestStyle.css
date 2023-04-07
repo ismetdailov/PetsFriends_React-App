@@ -11,7 +11,7 @@
 }
 
 main {
-  box-sizing: border-box;
+  box-sizing: flex;
 }
 
 /* Guest Section */

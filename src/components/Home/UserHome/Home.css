@@ -1,25 +1,38 @@
 /* navbar */
+main {
+
+    height: 100vh;
+}
+
 .mainContainer {
-    display: grid;
+    position: fixed;
+    margin: auto;
+    width: 100%;
+    height: 100%;
 }
 
 .navbar {
-    margin-top:0 !important;
-    display: flex;
+    position: sticky;
+    margin-top: 0 !important;
     width: 100%;
+    display: inline-flex;
     background-color: #d2e10c;
-    border-bottom:dashed ;
+    border-bottom: dashed;
     border-style: double;
     border-width: 10px;
     border-radius: 25px;
+    height: 7vh;
 }
-.searchInput{
+
+.searchInput {
+    border-radius: 25px;
+    position: relative;
     width: 110%;
 }
 
 .leftNavbar {
-    margin-top:0 !important;
-    margin-bottom:0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     display: inline-block;
     display: flex;
     list-style: none;
@@ -28,17 +41,18 @@
 }
 
 .centerNavbar {
-    margin:auto;
-    margin-top:0 !important;
+    margin: auto;
+    margin-top: 0 !important;
     display: inline-block;
     display: flex;
     height: 100%;
     list-style: none;
+   
 }
 
 .rightNavbar {
-    margin-top:0 !important;
-    margin-bottom:0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     margin-right: 0 !important;
     padding-right: 0 !important;
     display: inline-block;
@@ -59,7 +73,7 @@ li {
 .iconsContainer {
     position: relative;
     padding-top: 3%;
-    
+
 }
 
 .iconsContainer i {
@@ -68,107 +82,131 @@ li {
     color: #120edf;
     top: 18%;
     left: 98%;
-    
+
 }
-.homeIconLogo{
-    padding-top: 0%;
+
+.homeIconLogo {
+    width: 4.5vh;
+    padding-top: 1%;
     padding-left: 0%;
+    padding-bottom: 1%;
     color: #ef0067;
-    height: 10%;
 }
-.homeIconLogo:hover{
-    color: #120edf;
+
+.homeIconLogo:hover {
+    /* background-image: url("../../ComponentImages/logo ping.png"); */
+    /* image: url("../../ComponentImages/logo ping.png"); */
+
 }
+
 .homeIcon {
     color: #ef0067;
     margin: auto;
     font-size: xx-large;
 }
-.pawIcon{
+
+.pawIcon {
     color: #ef0067;
     margin: auto;
     font-size: xx-large;
     padding-left: 30%;
 }
-.logoImage{
-    height: 3rem;
-    padding-right: 0%;
-    padding-top: 5%;
-    margin-top: 2%;
-    padding-bottom: 0%;
-    width: auto;
-}
-.profileImageLi{
-    width: 19%;
+
+/* .logoImage {
     padding-top: 1%;
+    padding-bottom: 1%;
+} */
+
+.profileImageLi {
+    width: 17vh;
+    height: 1vh;
+    padding-top: 1%;
+    padding-bottom: 1%;
     margin-left: 20%;
 }
-.rightIcons{
+
+.rightIcons {
     margin: auto;
     color: #1f92eb;
     font-size: xx-large;
     margin-right: 5%;
     float: right;
 }
+
 /* main */
 
-.mainSection{
-    display: flex;
+.mainSection {
+
+    position: relative;
     flex-wrap: wrap;
     margin: auto;
     width: 100%;
-    height: auto;
+    height: 87.5vh;
 }
-.leftSidebar{
+
+.leftSidebar {
     margin: auto;
     display: grid;
-    width: 25%;
+    width: 20%;
     float: left;
 }
-.postSection{
+
+.postSection {
     margin: auto;
     display: grid;
-    width: 50%;
+    width: 60%;
     float: left;
+    height: 100%;
+    border-color: rgb(203, 220, 20);
+    border-radius: 25px;
 }
-.rightSide{
+
+.rightSide {
     margin: auto;
     display: grid;
-    width: 25%;
+    width: 20%;
     float: right;
 }
-.leftContainer{
+
+.leftContainer {
     margin: auto;
     display: flex;
     width: 90%;
 }
-.centerContainer{
-    margin: auto;
-    display: flex;
-    width: 90%;
-    background-color: #fc7bfc;
+
+.centerContainer {
+    width: 95%;
+    margin-left: 2.5%;
+    border-style: double;
+    border-width: 20px;
+    border-color: rgb(238, 164, 14);
+    border-radius: 25px;
+    overflow: hidden;
     background-image: url("../../ComponentImages/logo1.png");
-    
-
-
+    background-color: rgb(20, 220, 60);
+    overflow: auto;
+    scrollbar-width: none
 }
-.rightContainer{
+.centerContainer::-webkit-scrollbar{
+    display: none;
+}
+
+.rightContainer {
     margin: auto;
     display: flex;
 
 }
-.leftUl{
 
-}
-.rightUl{
+.leftUl {}
 
-}
-.createPsotContainer{
+.rightUl {}
+
+.createPsotContainer {
     margin: auto;
-    width: 100%;
-    height: 1%;
+    width: 70%;
 }
-.modalcreatePostContainer{
+
+.modalcreatePostContainer {
     margin: auto;
     margin-top: 2%;
     align-content: center;
@@ -176,32 +214,128 @@ li {
     top: 0;
     width: 70%;
     /* background-color: rgb(255, 255, 0); */
-    background-color: rgb(26, 171, 133);
+    background-color: rgb(3, 225, 254);
     /* background-image: url("../../ComponentImages/logo1.png"); */
     background-size: 10%;
     border-radius: 55px;
     border-style: dashed;
     border-width: 7px;
-    border-color: rgb(255, 255, 0);
+    border-color: rgb(224, 26, 201);
 }
-.modalcreatePostContainer :hover{
+
+.modalcreatePostContainer :hover {
     /* background-image: url("../../ComponentImages/logo ping.png"); */
-    background-color: #ef0067;
+    background-color: #3c8688;
     background-size: 10%;
     border-radius: 55px;
     border-width: 7px;
 }
-.postContainer{
+
+.postContainer {
     margin: auto;
     display: flex;
     width: 100%;
 }
-.postImage{
+
+.postImage {
     float: left;
     width: 10%;
 }
-.createPostBtn{
+
+.createPostBtn {
     margin: auto;
-    color: aliceblue;
+}
+
+.posts {
+    margin: auto;
+    background-color: #c6d03b;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 35px;
+    border-style: double;
+    border-width: 30px;
+    width: 85%;
+    height: 4%;
+}
+
+.posts article {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+}
+
+.posts .profileImage {
+    width: 10%;
+}
+
+.postUserInfo {
+    margin: auto;
+    display: flex;
+    width: 100%;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+.posts b {
+    padding-top: 2%;
+    padding-left: 2%;
+    width: 50%;
+}
+
+.posts time {
+    padding-top: 2%;
+    margin-left: 15%;
+}
+
+.posts p {
+    margin: auto;
+    width: 80%;
+    padding: 1% 1% 1% 1%;
+}
+
+.posts .imagePost {
+    margin: auto;
+    display: flex;
+    overflow: auto;
+    /* overflow-wrap: normal; */
+    overflow-inline: auto;
+    width: 90%;
+    height: auto;
+
+}
+
+.posts .imagePost img {
+    border-radius: 35px;
+
+}
+
+.btnContainer {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    height: auto;
+    padding: 1% 1% 1% 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.likeBtn, .commentBtn, .shareBtn{
+    margin: auto;
+    width: 33%;
+}
+.like, .comment, .share{
+    background-color: #ef0067;
+    width: 100%;
+    border-radius: 25px;
+}
+.share:hover{
+    background-color: #1f92eb;
+}
+.like:hover{
+    background-color: #1f92eb;
+
+}
+.comment:hover{
+    background-color: #1f92eb;
 
 }

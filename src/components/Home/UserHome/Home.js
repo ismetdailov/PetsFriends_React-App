@@ -1,9 +1,10 @@
 import './Home.css'
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHouseCrack, faCat, faPaw, faMessage, faBell, faArrowDownShortWide, faImage } from "@fortawesome/free-solid-svg-icons"
+import { faHouseCrack, faCat, faPaw, faMessage, faBell, faArrowDownShortWide, faFileImage, faLocationDot, faFaceGrinTongue } from "@fortawesome/free-solid-svg-icons"
 import GuesImage from '../../ComponentImages/Picture';
 import logo from '../../ComponentImages/logo1.png'
+import postImage from '../../ComponentImages/guestHome.png'
 
 
 export const Home = ({
@@ -48,21 +49,101 @@ export const Home = ({
             <div className='createPsotContainer'>
               <div className='modalcreatePostContainer'>
                 <div className='postContainer'>
-
                   <img className='postImage' src={logo} alt="" />
                   <a className='createPostBtn' alt=''>Create post</a>
                 </div>
               </div>
-              <label >
-                <header>Create post.... What you think now?</header>
 
-                <input></input>
-              </label>
-              <span>
-                <FontAwesomeIcon icon={faImage} />
-              </span>
+              <div className='posts'>
+                <article>
+                  <div className='postUserInfo'>
+                    <img className='profileImage' src={logo} alt="" />
+                    <b>Ismet Dailov</b>
+                    <time>10:55</time>
+                  </div>
+                  <p>this is my post i like very</p>
+                  <div className='imagePost'>
+                    <img className='postImage1' src={postImage} alt="" />
+                    <img className='postImage1' src={postImage} alt="" />
+                    <img className='postImage1' src={postImage} alt="" />
+                    <img className='postImage1' src={postImage} alt="" />
+                  </div>
+                  <div className='btnContainer'>
+                    <div className='likeBtn'>
+                      <button className='like' >like</button>
+                    </div>
+                    <div className='commentBtn'>
+                      <button className='comment' >comment</button>
+                    </div>
+                    <div className='shareBtn'>
+                      <button className='share'>share</button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+
+              <div className='posts'>
+                <article>
+                  <div className='postUserInfo'>
+                    <img className='profileImage' src={logo} alt="" />
+                    <b>Ismet Dailov</b>
+                    <time>10:55</time>
+                  </div>
+                  <p>this is my post i like very</p>
+                  <div className='imagePost'>
+                    <img className='postImage1' src={postImage} alt="" />
+                    <img className='postImage1' src={postImage} alt="" />
+                    <img className='postImage1' src={postImage} alt="" />
+                    <img className='postImage1' src={postImage} alt="" />
+                  </div>
+                  <div className='btnContainer'>
+                    <div className='likeBtn'>
+                      <button className='like' >like</button>
+                    </div>
+                    <div className='commentBtn'>
+                      <button className='comment' >comment</button>
+                    </div>
+                    <div className='shareBtn'>
+                      <button className='share'>share</button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div className='posts'>
+                <article>
+                  <div className='postUserInfo'>
+                    <img className='profileImage' src={logo} alt="" />
+                    <b>Ismet Dailov</b>
+                    <time>10:55</time>
+                  </div>
+                  <p>this is my post i like very</p>
+                  <div className='imagePost'>
+                    <img className='postImage1' src={postImage} alt="" />
+                    <img className='postImage1' src={postImage} alt="" />
+                    <img className='postImage1' src={postImage} alt="" />
+                    <img className='postImage1' src={postImage} alt="" />
+                  </div>
+                  <div className='btnContainer'>
+                    <div className='likeBtn'>
+                      <button className='like' >like</button>
+                    </div>
+                    <div className='commentBtn'>
+                      <button className='comment' >comment</button>
+                    </div>
+                    <div className='shareBtn'>
+                      <button className='share'>share</button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+
+
+
             </div>
           </div>
+
         </article>
         <section className='rightSide'>
           <div className='rightContainer'>
