@@ -1,4 +1,6 @@
+
 export const UserActions = {
     Login: 'login',
-    Register: 'register'
+    Register: 'register',
+    CreatePost:'create'
 };

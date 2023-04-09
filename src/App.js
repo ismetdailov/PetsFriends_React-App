@@ -6,9 +6,13 @@ import {Home} from './components/Home/UserHome/Home'
 import {MyProfile} from './components/MyProfile/MyProfile.js'
 import "./App.css"
 import Test from './components/Home/GuestHome/test';
+import { AuthProvider } from './components/context/authContext';
+import CreatePost from './components/Posts/CreatePost';
 
 function App() {
   return (
+    <AuthProvider>
+
     <div className="container">
       <main>
         <Routes>
@@ -16,6 +20,7 @@ function App() {
           {/* <Route path='/login' element={<Login />}></Route> */}
           <Route path='/Test' element={<Test/>}></Route>
           <Route path='/Home' element={<Home/>}></Route>
+          <Route path='/Create' element={<CreatePost/>}></Route>
           <Route path='/MyProfile' element={<MyProfile/>}></Route>
         </Routes>
       </main>
@@ -23,6 +28,7 @@ function App() {
         <Footer />
       </footer>
     </div>
+    </AuthProvider>
   );
 }
 

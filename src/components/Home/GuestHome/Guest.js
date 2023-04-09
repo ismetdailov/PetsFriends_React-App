@@ -7,6 +7,7 @@ import { Link, useActionData } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { Register } from '../../Register/Register'
 import { Login } from '../../Login/Login.js';
+import {CreatePost} from'../../Posts/CreatePost.js'
 import { UserActions } from './UserAction.js';
 
 export const Guest = ({

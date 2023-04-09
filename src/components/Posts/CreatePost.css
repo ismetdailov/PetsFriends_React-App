@@ -1,0 +1,169 @@
+.postcontainer {
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    align-content: center;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 90%;
+    /* background-color: rgb(255, 255, 0); */
+    /* background-color: aqua;
+    background-image: url("../ComponentImages/logo1.png");
+    border-radius: 45px;
+    border-style: double; */
+    border-width: 35px;
+    border-color: rgb(12, 210, 35);
+
+}
+
+.headerContainer {
+    background-color: rgb(255, 255, 0);
+    margin: auto;
+    width: 30%;
+    border-radius: 25px;
+    border-width: 10px;
+    border-style: double;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.createh1 {
+    text-align: center;
+    margin: auto;
+}
+
+.inputCreate {
+    display: flex;
+    margin: auto;
+    width: 60%;
+    padding-top: 2%;
+    height: 50%;
+    border-style: double;
+    border-radius: 35px;
+    border-width: 10px;
+    align-items: center;
+    background-color: rgb(255, 255, 0);
+}
+
+.inputCreate label {
+    margin: auto;
+    align-items: center;
+    width: 90%;
+    padding-bottom: 1.5%;
+
+}
+
+.inputCreate textarea {
+    margin: auto;
+    align-items: center;
+    padding: 2% 2% 2% 2%;
+    border-radius: 25px;
+    resize: none;
+    position: static;
+    width: 100%;
+    height: auto;
+}
+
+.iconsContainer1 {
+    padding-top: 1% !important;
+    margin: auto;
+    border-radius: 55px;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-width: 15px;
+    border-style: double;
+    background-color: aqua;
+
+}
+
+.fileIcon {
+    padding-top: 0%;
+    margin: auto;
+    font-size: xx-large;
+    color: #ef0067;
+}
+
+.locationIcon {
+    padding-top: 0%;
+
+    padding-left: 4%;
+    font-size: xx-large;
+    color: #0754e4;
+
+}
+
+.emojiIcon {
+    padding-top: 0%;
+    padding-left: 4%;
+    color: rgb(238, 27, 245);
+    font-size: xx-large;
+}
+.fileIcon:hover{
+    color: rgb(255, 255, 0);
+
+}
+.locationIcon:hover{
+    color: rgb(255, 255, 0);
+
+}
+ .emojiIcon:hover{
+    color: rgb(255, 255, 0);
+}
+.btnsContainer{
+    margin: auto;
+    width: 70%;
+    padding-left: 5%;
+}
+.cancelBtn{
+    width: 45%;
+    border-radius: 10px;
+background-color: rgb(255, 255, 0);
+}
+.createPostBtn1{
+
+    background-color:rgb(255, 255, 0);
+    border-radius: 10px;
+    margin-left: 2%;
+    width: 45%;
+    margin-bottom: 2%;
+}
+.createPostBtn1:hover{
+    background-color: rgb(13, 209, 29);
+}
+.cancelBtn:hover{
+    background-color: rgb(222, 24, 24);
+}
+.uploadImagesContainer{
+    margin: auto;
+    display: flex;
+    overflow: auto;
+    width: 70%;
+}
+
+.uploadImagesContainer img{
+    margin-top: 1%;
+    border-radius: 35px;
+
+}
+.closeIcon{
+    font-size: xx-large;
+}
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+    border: 1px solid yellowgreen;
+    border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    background: rgb(238, 27, 245);  
+    border-radius: 10px;
+    }

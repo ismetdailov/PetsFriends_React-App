@@ -28,7 +28,7 @@ export const MyProfile = ({
                         </div>
                     </div>
                 </div>
-                <main className='mainSection'>
+                <main className='mainSectionMyProfile'>
                     <section className='leftSidebar'>
                         <div className='leftContainer'>
                             <ul className='leftUl'>

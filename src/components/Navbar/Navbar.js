@@ -1,7 +1,8 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHouseCrack, faCat, faPaw, faMessage, faBell, faArrowDownShortWide, faFileImage, faLocationDot, faFaceGrinTongue } from "@fortawesome/free-solid-svg-icons"
+import { faHouseCrack, faCat, faPaw, faMessage, faBell, faArrowDownShortWide,faRightFromBracket, faFileImage, faLocationDot, faFaceGrinTongue } from "@fortawesome/free-solid-svg-icons"
 import logo from '../ComponentImages/logo1.png'
+import { Link } from "react-router-dom"
 
 export const Navbar = ({
 
@@ -28,6 +29,8 @@ export const Navbar = ({
   <li className='rightIcons'><FontAwesomeIcon icon={faMessage} /></li>
   <li className='rightIcons'><FontAwesomeIcon icon={faBell} /></li>
   <li className='rightIcons'><FontAwesomeIcon icon={faArrowDownShortWide} /></li>
+  <li className='rightIcons' ><Link to='/' ><FontAwesomeIcon icon={faRightFromBracket} /></Link></li>
+  
 </ul>
 </div>
   )

@@ -31,7 +31,7 @@
     border-radius: 50px;
     border-style: double;
     border-color: rgb(255, 255, 0);
-    border-color: aqua;
+    border-color: rgb(255, 255, 0);
     border-width: 25px;
 }
 
@@ -169,7 +169,12 @@ margin-left: 15%;
     border-radius: 5px;
 
 }
-
+.closeIcon{
+    font-size: xx-large;
+}
+.closeIcon:hover{
+    color: red;
+}
 .icon{
 
     margin: auto;
@@ -244,7 +249,19 @@ margin-left: 15%;
     background-color: aqua;
 }
 
-
+.errorContainer{
+    color: aliceblue;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 60%;
+    border-radius: 25px;
+    background-color: red;
+    text-align: center;
+    font-size: xx-large;
+    border-width: 10px;
+    border-color: rgb(255, 255, 0);
+}
 
 
 

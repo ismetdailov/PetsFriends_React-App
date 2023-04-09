@@ -100,7 +100,6 @@ main {
 }
 
 .row {
-  overflow: hidden;
   background-color: rgb(255,255,0);
   box-sizing: border-box;
   display: table;
@@ -163,6 +162,22 @@ margin-top: 5%;
   margin-left: 0%;
   margin-bottom: 2%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

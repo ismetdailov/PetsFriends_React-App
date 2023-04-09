@@ -23,6 +23,9 @@
     height: 40%;
 
 }
+::-webkit-scrollbar-thumb:hover {
+    background: lightBlue,
+}
 .regContainer{
     z-index: 100;
 }
