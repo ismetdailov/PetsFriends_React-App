@@ -77,18 +77,7 @@ main {
     height: 100%;
 }
 
-.navbar {
-    position: sticky;
-    margin-top: 0 !important;
-    width: 100%;
-    display: inline-flex;
-    background-color: #d2e10c;
-    border-bottom: dashed;
-    border-style: double;
-    border-width: 10px;
-    border-radius: 25px;
-    height: 7vh;
-}
+
 
 .searchInput {
     border-radius: 25px;
@@ -211,57 +200,8 @@ li {
     padding-top: 1%;
 }
 
-.leftSidebar {
-    margin: auto;
-    display: grid;
-    width: 20%;
-    float: left;
-}
 
-.postSection {
-    margin: auto;
-    display: grid;
-    width: 60%;
-    float: left;
-    height: 100%;
-    border-color: rgb(203, 220, 20);
-    border-radius: 25px;
-}
 
-.rightSide {
-    margin: auto;
-    display: grid;
-    width: 20%;
-    float: right;
-}
-
-.leftContainer {
-    margin: auto;
-    display: flex;
-    width: 90%;
-}
-
-.centerContainer {
-    width: 95%;
-    margin-left: 2.5%;
-    border-style: double;
-    border-width: 20px;
-    border-color: rgb(238, 164, 14);
-    border-radius: 25px;
-    background-image: url("../ComponentImages/logo1.png");
-    background-color: rgb(20, 220, 60);
-    overflow: auto;
-}
-
-.rightContainer {
-    margin: auto;
-    display: flex;
-
-}
-
-.leftUl {}
-
-.rightUl {}
 
 .createPsotContainer {
     margin: auto;

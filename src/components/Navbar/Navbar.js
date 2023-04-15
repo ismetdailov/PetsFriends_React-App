@@ -21,15 +21,15 @@ export const Navbar = ({
   </li>
 </ul>
 <ul className='centerNavbar'>
-  <li className='homeIcon'><FontAwesomeIcon icon={faHouseCrack} /></li>
-  <li className='pawIcon'><FontAwesomeIcon icon={faPaw} /></li>
+  <li className='homeIcon'><FontAwesomeIcon className="linkIcon" icon={faHouseCrack} /></li>
+  <li className='pawIcon'><Link className="linkIcon" to='/AddFriends'><FontAwesomeIcon icon={faPaw} /></Link></li>
 </ul>
 <ul className='rightNavbar'>
-  <li className='profileImageLi'> <img className='profileImg' src={logo} alt="" /></li>
-  <li className='rightIcons'><FontAwesomeIcon icon={faMessage} /></li>
-  <li className='rightIcons'><FontAwesomeIcon icon={faBell} /></li>
-  <li className='rightIcons'><FontAwesomeIcon icon={faArrowDownShortWide} /></li>
-  <li className='rightIcons' ><Link to='/' ><FontAwesomeIcon icon={faRightFromBracket} /></Link></li>
+<li className='homeIconLogo'><img className='navprofileImg' src={logo} alt="" /></li>
+  <li className='navrightIcons'><Link className="linkIcon" to='/Messages' ><FontAwesomeIcon icon={faMessage} /></Link></li>
+  <li className='navrightIcons'><FontAwesomeIcon className="linkIcon" icon={faBell} /></li>
+  <li className='navrightIcons'><FontAwesomeIcon className="linkIcon" icon={faArrowDownShortWide} /></li>
+  <li className='navrightIcons'><Link to='/' className="linkIcon"><FontAwesomeIcon icon={faRightFromBracket} /></Link></li>
   
 </ul>
 </div>

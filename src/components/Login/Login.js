@@ -10,10 +10,7 @@ import * as authService from '../services/authenticationService';
 
 //  import { Link } from 'react-router-dom';
 export const Login = ({
-    user,
-    onClick,
     onClose,
-    onActionClick
 }) => {
 
     const navigate = useNavigate();
@@ -48,7 +45,8 @@ export const Login = ({
             navigate('/Home');
         } catch (err) {
             if (
-                err.message === 'Firebase: Error (auth/user-not-found).'
+                err.message === 'Firebase: Error (auth/user-not-found).',
+                alert('Firebase: Error (auth/user-not-found).')
 
             ) {
                 setErrors((oldState) => {
@@ -163,9 +161,6 @@ export const Login = ({
                         </div>
                     </div>
                 </div>
-
-
-
             </form>
         </>
     );

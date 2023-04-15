@@ -1,0 +1,82 @@
+.addFriendcontainer {
+    height: 95%;
+    background-image: url(../ComponentImages/logo1.png);
+background-color: rgb(255, 255, 0);
+    overflow: auto;
+}
+
+.headContainer {
+    background-color: rgb(255, 255, 0);
+    margin: auto;
+    width: 95%;
+    border-radius: 25px;
+    border-width: 10px;
+    border-style: double;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.headContainer h1 {
+    margin: unset;
+    width: 100%;
+    text-align: center;
+}
+
+.friendContainer {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+.userCardContainer {
+    margin: 5px 5px 5px 5px;
+    display: inline;
+    width: 15%;
+    height: 100%;
+    background-color: rgb(73, 226, 43);
+    border-radius: 35px;
+    border-style: double;
+    border-width: 15px;
+    border-color: rebeccapurple;
+    margin-bottom: 1%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.userCardContainer img{
+    border-radius: 20px;
+}
+
+.userNameContainer {
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.userName {
+    margin: auto;
+    width: 50%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.userCardContainer button {
+    width: 70%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-left: 15%;
+    background-color: rgb(40, 105, 235);
+    border-radius: 10px;
+}
+
+.userCardContainer button:hover {
+    background-color: rgb(255, 255, 0);
+}

@@ -48,7 +48,7 @@ export const Guest = ({
                 <div className="columnm">
                     <div className="guestArticle">
                         <article className="columnn">
-                            <div className="container">
+                            <div className="containerGuest">
                                 <GuesImage className='img' />
                             </div>
                         </article>
@@ -58,7 +58,7 @@ export const Guest = ({
                 <div className="columnm">
                     <div className="guestArticle2">
                         <article className="columnn">
-                            <div className="container">
+                            <div className="containerGuest">
                                 <GuesImage />
                             </div>
                         </article>

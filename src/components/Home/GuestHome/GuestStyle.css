@@ -12,6 +12,7 @@
 
 main {
   box-sizing: flex;
+  overflow: hidden;
 }
 
 /* Guest Section */
@@ -24,6 +25,9 @@ main {
   padding-left: 0%;
   border-bottom:double;
   margin-top: 1%;
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
 }
 
 .emptySpace {
@@ -197,13 +201,12 @@ margin-top: 5%;
     width: 55%;
   }
 
-  .container {
+  .containerGuest {
     border-radius: 75px;
     padding-right: 10px;
   }
 
   .row {
-    margin-top: 100px;
     border-radius: 50px;
     background-color: yellow;
   }
@@ -221,13 +224,21 @@ margin-top: 5%;
   } */
 
   .guestColumInfo {
-    background-color: aqua;
     margin: auto;
     width: 100%;
+    margin-bottom: 10%;
   }
 
-  
-
+  .container{
+    height: 80vh;
+  }
+  main{
+    height: unset;
+    height: 80vh;
+  }
+footer{
+  margin-top: 10%; ;
+}
   .loginRegisterContainer {
     margin: auto;
     padding-bottom: 2%;
@@ -241,7 +252,7 @@ margin-top: 5%;
     margin-top: 15px;
     width: 55%;
   }
-  .loginBtn :hover{
+  .loginBtn:hover{
       background-color: grey;
   color: rgb(31, 136, 228);
 
@@ -269,14 +280,19 @@ margin-top: 5%;
     margin: auto;
     width: 55%;
   }
-  
+  main{
+
+    overflow-y: auto;
+    height: 80vh;
+  }
   .container {
+    height: 90%;
+    overflow: auto;
     border-radius: 75px;
     padding-right: 10px;
   }
 
   .row {
-    margin-top: 100px;
     border-radius: 50px;
     background-color: yellow;
   }
@@ -296,6 +312,7 @@ margin-top: 5%;
   .guestColumInfo {
     margin: auto;
     width: 100%;
+    margin-bottom: 20%;
   }
 
   .loginRegisterContainer {
@@ -303,7 +320,8 @@ margin-top: 5%;
     padding-bottom: 2%;
     padding-top: 0px;
     padding-left: 30%;
-    width: 100%;
+    width: 90%;
+    margin-bottom: 1%;
   }
 
   .registerBtn {

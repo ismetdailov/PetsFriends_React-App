@@ -1,0 +1,60 @@
+.containerContainer {
+    padding: unset;
+    width: 100%;
+    height: 95%;
+}
+
+.friendMessagesContainer {
+    display: inline-block;
+}
+
+.friendMessagesContainer img {
+    display: inline-block;
+    width: 20%;
+}
+.friendMessagesContainer h3{
+    width: 80%;
+    display: inline-block;
+    margin: auto;
+}
+.h1Container {
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    background-color: rgb(255, 255, 0);
+    border-radius: 25px;
+    border-style: double;
+    border-width: 10px;
+    flex-wrap: nowrap;
+}
+
+.h1Container h1 {
+    margin: auto;
+    align-items: center;
+    width: 45%;
+    margin: auto;
+    padding-top: 0.5%;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.contentContainer {
+    display: flex;
+    height: 100%;
+    
+}
+
+.asideSection {
+    display: inline;
+    width: 20%;
+    height: 100%;
+    background-color: rgb(255, 255, 0);
+}
+
+.centerbSection {
+    display: inline;
+    width: 80%;
+    background-image: url('../ComponentImages/logo1.png');
+    height: 100%;
+}

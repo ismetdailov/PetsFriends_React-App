@@ -29,9 +29,9 @@ export const Home = ({
 
         />
       }
-      <div className='mainContainer'>
+      <div className='mainsContainer'>
         <Navbar />
-        <main className='mainSection'>
+        <main className='mainsSection'>
           <section className='leftSidebar'>
             <div className='leftContainer'>
               <ul className='leftUl'>

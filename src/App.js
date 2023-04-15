@@ -8,6 +8,8 @@ import "./App.css"
 import Test from './components/Home/GuestHome/test';
 import { AuthProvider } from './components/context/authContext';
 import CreatePost from './components/Posts/CreatePost';
+import { Messages } from './components/Messages/Messages';
+import AddFriends from './components/AddFriends/AddFriends';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path='/' element={<Guest />}></Route>
           {/* <Route path='/login' element={<Login />}></Route> */}
           <Route path='/Test' element={<Test/>}></Route>
+          <Route path='/Messages' element={<Messages/>}></Route>
+          <Route path='/AddFriends' element={<AddFriends></AddFriends>}></Route>
           <Route path='/Home' element={<Home/>}></Route>
           <Route path='/Create' element={<CreatePost/>}></Route>
           <Route path='/MyProfile' element={<MyProfile/>}></Route>

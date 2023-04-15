@@ -4,7 +4,7 @@ main {
     height: 100vh;
 }
 
-.mainContainer {
+.mainsContainer {
     position: fixed;
     margin: auto;
     width: 100%;
@@ -47,7 +47,16 @@ main {
     display: flex;
     height: 100%;
     list-style: none;
-   
+
+}
+
+ul {
+    padding-right: 0px;
+    padding-inline-start: 0%;
+}
+
+.searchIcon {
+    margin-right: 5%;
 }
 
 .rightNavbar {
@@ -59,6 +68,7 @@ main {
     display: flex;
     list-style: none;
     height: 100%;
+    width: 13%;
 }
 
 li {
@@ -71,17 +81,16 @@ li {
 }
 
 .iconsContainer {
+
     position: relative;
     padding-top: 3%;
-
 }
 
 .iconsContainer i {
-    z-index: 999;
     position: absolute;
-    color: #120edf;
+    color: #df570e;
     top: 18%;
-    left: 98%;
+    left: 90%;
 
 }
 
@@ -108,30 +117,36 @@ li {
     padding-left: 30%;
 }
 
-/* .logoImage {
-    padding-top: 1%;
-    padding-bottom: 1%;
-} */
+
 
 .profileImageLi {
-    width: 17vh;
-    height: 1vh;
+    width: 10vh;
     padding-top: 1%;
+    padding-left: 0%;
     padding-bottom: 1%;
-    margin-left: 20%;
+    color: #ef0067;
+    height: 100%;
 }
 
-.rightIcons {
+.navrightIcons {
     margin: auto;
+    margin-right: unset;
     color: #1f92eb;
     font-size: xx-large;
-    margin-right: 5%;
     float: right;
+}
+
+.linkIcon {
+    color: #ef0067;
+}
+
+.linkIcon:hover {
+    color: #0e99df;
 }
 
 /* main */
 
-.mainSection {
+.mainsSection {
 
     position: relative;
     flex-wrap: wrap;
@@ -142,9 +157,15 @@ li {
 
 .leftSidebar {
     margin: auto;
-    display: grid;
+    display: block;
     width: 20%;
     float: left;
+    align-items: center;
+    justify-content: center;
+    background-color: #0af4f4;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 25px;
 }
 
 .postSection {
@@ -159,19 +180,27 @@ li {
 
 .rightSide {
     margin: auto;
-    display: grid;
-    width: 20%;
+    display: block;
+    width: 18%;
     float: right;
+    align-items: center;
+        justify-content: center;
+        background-color: #0af4f4;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        border-radius: 25px;
+        margin-bottom: 25%;
 }
 
 .leftContainer {
+    display: block;
     margin: auto;
-    display: flex;
-    width: 90%;
+    width: 100%;
+
 }
 
 .centerContainer {
-    width: 95%;
+    width: 100%;
     margin-left: 2.5%;
     border-style: double;
     border-width: 20px;
@@ -185,13 +214,45 @@ li {
 
 .rightContainer {
     margin: auto;
-    display: flex;
+    width: 100%;
 
 }
 
-.leftUl {}
+.leftUl {
+    list-style: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 
-.rightUl {}
+.leftUl li {
+    margin: auto;
+    margin-top: 2%;
+    width: 80%;
+    border-radius: 15px;
+    background-color: #ef0067;
+
+}
+
+.leftUl li:hover {
+    background-color: rgb(203, 220, 20);
+}
+.rightUl li:hover {
+    background-color: rgb(203, 220, 20);
+
+}
+.rightUl li {
+    margin: auto;
+    margin-top: 2%;
+    width: 80%;
+    border-radius: 15px;
+    background-color: #ef0067;
+}
+.rightUl {
+    list-style: none;
+    align-items: center;
+    text-align: center;
+}
 
 .createPsotContainer {
     margin: auto;
@@ -217,7 +278,7 @@ li {
 
 .modalcreatePostContainer :hover {
     /* background-image: url("../../ComponentImages/logo ping.png"); */
-    background-color: #3c8688;
+    background-color: #0f0aa8;
     background-size: 10%;
     border-radius: 55px;
     border-width: 7px;
@@ -232,6 +293,10 @@ li {
 .postImage {
     float: left;
     width: 10%;
+}
+
+.navprofileImg {
+    margin-bottom: 2%;
 }
 
 .createPostBtn {
@@ -296,7 +361,7 @@ li {
 
 }
 
-.posts .imagePost::-webkit-scrollbar{
+.posts .imagePost::-webkit-scrollbar {
     display: block;
     background-color: #120edf;
     color: #ef0067;
@@ -304,6 +369,7 @@ li {
     outline: #3c8688;
     overflow-y: scroll;
 }
+
 .posts .imagePost img {
     border-radius: 35px;
 
@@ -318,23 +384,140 @@ li {
     margin-top: 2%;
     margin-bottom: 2%;
 }
-.likeBtn, .commentBtn, .shareBtn{
+
+.likeBtn,
+.commentBtn,
+.shareBtn {
     margin: auto;
     width: 33%;
 }
-.like, .comment, .share{
+
+.like,
+.comment,
+.share {
     background-color: #ef0067;
     width: 100%;
     border-radius: 25px;
 }
-.share:hover{
+
+.share:hover {
     background-color: #1f92eb;
 }
-.like:hover{
+
+.like:hover {
     background-color: #1f92eb;
 
 }
-.comment:hover{
+
+.comment:hover {
     background-color: #1f92eb;
+
+}
+
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        display: grid;
+        position: relative;
+        height: unset;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .leftNavbar {
+        background-color: #00c3ef;
+        margin-left: unset;
+        margin-right: 5%;
+        width: 120%;
+        border-radius: 15px;
+        display: inline;
+    }
+
+    .centerNavbar {
+        background-color: #0e99df;
+        width: 60%;
+        border-radius: 15px;
+        display: inline;
+    }
+
+    .rightNavbar {
+        border-radius: 10px;
+
+        background-color: #dfb20e;
+        width: 100%;
+        display: inline;
+    }
+
+    .mainsSection {
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .leftSidebar {
+        display: block;
+        margin: auto;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: #0af4f4;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        border-radius: 25px;
+    }
+
+    .leftContainer {
+        display: block;
+        margin: auto;
+        width: 60%;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .leftUl {
+        margin: auto;
+        width: 100%;
+    }
+
+    .rightSide {
+        display: block;
+        margin: auto;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: #0af4f4;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        border-radius: 25px;
+        margin-bottom: 25%;
+    }
+
+    .rightContainer {
+        margin: auto;
+        width: 60%;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    .rightUl{
+        margin: auto;
+        width: 100%;
+    }
+    .rightUl li {
+        background-color: #ef0067;
+        width: 100%;
+    }
+    .leftUl li {
+        background-color: #ef0067;
+        width: 100%;
+    }
+
+    .postSection {
+        width: 100%;
+    }
 
 }

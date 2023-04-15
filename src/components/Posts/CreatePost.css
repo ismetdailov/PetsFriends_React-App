@@ -146,6 +146,8 @@ background-color: rgb(255, 255, 0);
 }
 
 .uploadImagesContainer img{
+    width: 700px;
+    height: 400px;
     margin-top: 1%;
     border-radius: 35px;
 
