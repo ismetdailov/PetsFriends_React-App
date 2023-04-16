@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import logo from '../ComponentImages/alvan-nee-T-0EW-SEbsE-unsplash.jpg'
 import '../AddFriends/AddFriends.css'
 import * as authService from '../services/auth';
+import { Navbar } from "../Navbar/Navbar";
 
 
 
@@ -30,6 +31,7 @@ export const AddFriends = () => {
         return (
             <>
                 <div className="addFriendcontainer">
+                    <Navbar/>
                     <div>
                         <div className="headContainer">
                             <h1>Find friends and have fun</h1>

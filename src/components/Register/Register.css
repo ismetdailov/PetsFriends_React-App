@@ -33,7 +33,7 @@
     margin: auto;
     position: relative;
     padding-right: 4%;
-    width: 60%;
+    width: 80%;
     background-color: #201C1C;
     margin-bottom: 3%;
     margin-top: 2%;
@@ -136,4 +136,22 @@ input {
     top: 0;
     width: 100%;
     z-index: 20;
+  }
+
+
+
+
+
+  @media only screen and (max-width: 941px) {
+    .reggContainer{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .formContainer{
+        margin: auto;
+        width: 80%;
+        margin-left: 0px;
+    }
+
   }

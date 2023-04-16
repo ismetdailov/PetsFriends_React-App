@@ -150,7 +150,7 @@ input {
 }
 .formContainer{
 padding-left: 0px;
-margin-left: 15%;
+margin-left: 5%;
 }
 .forgotContainer p{
     color: rgb(255, 255, 0);
@@ -276,7 +276,7 @@ margin-left: 15%;
         width: 100%;
     }
     .labelContainer{
-        width: 100%;
+        width: 90%;
     }
     .emailContainer{
         width: 100%;
@@ -301,10 +301,13 @@ margin-left: 15%;
         width: 100%;
     }
     .labelContainer{
-        width: 100%;
+        width: 90%;
     }
     .emailContainer{
-        width: 100%;
+        width: 90%;
+    }
+    .passwordContainer{
+        width: 90%;
     }
     .rememberContainer{
         width: 90%;

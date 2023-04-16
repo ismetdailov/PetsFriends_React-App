@@ -5,7 +5,7 @@ import './Register.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faRectangleXmark, faKey, faEnvelopeCircleCheck } from "@fortawesome/free-solid-svg-icons"
 import { useAuthContext } from '../context/authContext';
-import * as authService from '../services/auth';
+import * as authService from '../services/authenticationService';
 import { UserActions } from '../Home/GuestHome/UserAction';
 //  import { Link } from 'react-router-dom';
 export const Register = ({
@@ -53,6 +53,7 @@ export const Register = ({
                     id: newUser.user.uid,
                     email: newUser.user.email,
                     token: newUser.user.accessToken,
+                    
                     myPageView: 'own'
                 }
                 login(userInfo);
@@ -103,11 +104,26 @@ export const Register = ({
     const lastNameValidator = () => {
         if (userName.length < 1) {
             setErrors(oldState => {
-                return { ...oldState, userName: { message: 'Username is required', valid: false } }
+                return { ...oldState, userName: { message: 'Last name is required', valid: false } }
             })
-        }else if(userName.length>50){
+        }else if(lasttName.length>50){
             setErrors(oldState => {
-                return { ...oldState, userName: { message: 'Username must be bellow 50 symbols', valid: false } }
+                return { ...oldState, userName: { message: 'Last name must be bellow 50 symbols', valid: false } }
+            })
+        }else{
+            setErrors(oldState => {
+                return { ...oldState, userName: { message: '', valid: false } }
+            })
+        }
+    }
+    const cityValidator = () => {
+        if (userName.length < 1) {
+            setErrors(oldState => {
+                return { ...oldState, userName: { message: 'city is required', valid: false } }
+            })
+        }else if(city.length>50){
+            setErrors(oldState => {
+                return { ...oldState, userName: { message: 'city must be bellow 50 symbols', valid: false } }
             })
         }else{
             setErrors(oldState => {
@@ -221,7 +237,7 @@ export const Register = ({
                                         <i className='emailIcon'> <FontAwesomeIcon icon={faEnvelopeCircleCheck} /></i>
                                     </div>
                                     <input className='email' placeholder="Enter email address here..."
-                                        aria-errormessage={!errors.email.valid ? 'Wrong Email' : ''}
+                                        aria-errormessage={!errors.email.valid ? 'Wrong First Name' : ''}
                                         onBlur={emailValidator}
                                         onChange={firstNameHandler}
                                     ></input>
@@ -232,7 +248,11 @@ export const Register = ({
                                         <label><b>Last Name</b></label>
                                         <i className='emailIcon'> <FontAwesomeIcon icon={faEnvelopeCircleCheck} /></i>
                                     </div>
-                                    <input className='email' placeholder="Enter email address here..."></input>
+                                    <input className='email' placeholder="Enter email address here..."
+                                        aria-errormessage={!errors.email.valid ? 'Wrong First Name' : ''}
+                                        onBlur={lastNameValidator}
+                                        onChange={lastNameHandler}
+                                    ></input>
                                 </div>
                                 <div className='emaillContainer'>
                                     <div className='llabelContainer'>
@@ -240,7 +260,11 @@ export const Register = ({
                                         <label><b>Username</b></label>
                                         <i className='emailIcon'> <FontAwesomeIcon icon={faEnvelopeCircleCheck} /></i>
                                     </div>
-                                    <input className='email' placeholder="Enter email address here..."></input>
+                                    <input className='email' placeholder="Enter email address here..."
+                                        aria-errormessage={!errors.email.valid ? 'Wrong First Name' : ''}
+                                        onBlur={userNameValidator}
+                                        onChange={userNameHandler}
+                                    ></input>
                                 </div>
                                 <div className='emaillContainer'>
                                     <div className='llabelContainer'>
@@ -256,7 +280,11 @@ export const Register = ({
                                         <label><b>Name of your pet!</b></label>
                                         <i className='emailIcon'> <FontAwesomeIcon icon={faEnvelopeCircleCheck} /></i>
                                     </div>
-                                    <input className='email' placeholder="Enter email address here..."></input>
+                                    <input className='email' placeholder="Enter email address here..."
+                                        aria-errormessage={!errors.email.valid ? 'Wrong First Name' : ''}
+                                        onBlur={cityValidator}
+                                        onChange={cityHandler}
+                                    ></input>
                                 </div>
                                 <div className='emaillContainer'>
                                     <div className='llabelContainer'>

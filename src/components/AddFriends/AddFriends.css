@@ -1,12 +1,11 @@
 .addFriendcontainer {
     height: 95%;
     background-image: url(../ComponentImages/logo1.png);
-background-color: rgb(255, 255, 0);
     overflow: auto;
 }
 
 .headContainer {
-    background-color: rgb(255, 255, 0);
+    background-color: rgb(38, 255, 0);
     margin: auto;
     width: 95%;
     border-radius: 25px;
@@ -37,11 +36,10 @@ background-color: rgb(255, 255, 0);
     display: inline;
     width: 15%;
     height: 100%;
-    background-color: rgb(73, 226, 43);
+    background-color: rgb(255, 255, 0);
     border-radius: 35px;
     border-style: double;
     border-width: 15px;
-    border-color: rebeccapurple;
     margin-bottom: 1%;
     align-items: center;
     justify-content: center;
@@ -73,10 +71,25 @@ background-color: rgb(255, 255, 0);
     margin-bottom: 10%;
     margin-top: 5%;
     margin-left: 15%;
-    background-color: rgb(40, 105, 235);
+    background-color: rgb(203, 40, 235);
     border-radius: 10px;
 }
 
 .userCardContainer button:hover {
-    background-color: rgb(255, 255, 0);
+    background-color: rgb(12, 245, 51);
+}
+@media only screen and (max-width: 945px) {
+.friendContainer{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.addFriendcontainer{
+    display: block;
+}
+.userCardContainer{
+    margin: auto;
+    display: block;
+    width: 90%;
+}
 }

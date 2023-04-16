@@ -4,7 +4,7 @@ import postImage from '../ComponentImages/alvan-nee-T-0EW-SEbsE-unsplash.jpg'
 import { Navbar } from '../Navbar/Navbar'
 import logo from '../ComponentImages/logo1.png'
 import ProfileImage from '../ComponentImages/alvan-nee-T-0EW-SEbsE-unsplash.jpg'
-
+import { Link } from "react-router-dom"
 
 export const MyProfile = ({
 
@@ -44,7 +44,7 @@ export const MyProfile = ({
                                 <div className='modalcreatePostContainer'>
                                     <div className='postContainer'>
                                         <img className='postImage' src={logo} alt="" />
-                                        <a className='createPostBtn' alt=''>Create post</a>
+                                       <Link> className='createPostBtn' alt=''Create post</Link>
                                     </div>
                                 </div>
 

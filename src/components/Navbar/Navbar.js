@@ -21,11 +21,11 @@ export const Navbar = ({
   </li>
 </ul>
 <ul className='centerNavbar'>
-  <li className='homeIcon'><FontAwesomeIcon className="linkIcon" icon={faHouseCrack} /></li>
+  <li className='homeIcon'><Link className="linkIcon" to='/Home'><FontAwesomeIcon className="linkIcon" icon={faHouseCrack} /></Link></li>
   <li className='pawIcon'><Link className="linkIcon" to='/AddFriends'><FontAwesomeIcon icon={faPaw} /></Link></li>
 </ul>
 <ul className='rightNavbar'>
-<li className='homeIconLogo'><img className='navprofileImg' src={logo} alt="" /></li>
+<li className='homeIconLogo'><Link className="linkIcon" to='/MyProfile'><img className='navprofileImg' src={logo} alt="" /></Link></li>
   <li className='navrightIcons'><Link className="linkIcon" to='/Messages' ><FontAwesomeIcon icon={faMessage} /></Link></li>
   <li className='navrightIcons'><FontAwesomeIcon className="linkIcon" icon={faBell} /></li>
   <li className='navrightIcons'><FontAwesomeIcon className="linkIcon" icon={faArrowDownShortWide} /></li>
