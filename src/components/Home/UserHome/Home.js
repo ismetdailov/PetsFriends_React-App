@@ -46,13 +46,6 @@ export const Home = ({
       console.log(error)
     }
 })
-
-
-
-
-
-
-
   return (
     <>
       {userAction.action === UserActions.CreatePost &&
