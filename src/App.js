@@ -10,6 +10,7 @@ import { AuthProvider } from './components/context/authContext';
 import CreatePost from './components/Posts/CreatePost';
 import { Messages } from './components/Messages/Messages';
 import AddFriends from './components/AddFriends/AddFriends';
+import EditPost from './components/Posts/EditPost';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path='/Create' element={<CreatePost />}></Route>
             <Route path='/MyProfile' element={<MyProfile />}></Route>
             <Route path='/test' element={<Test />}></Route>
+            <Route path='/Post/Edit/:id' element={<EditPost/>}></Route>
           </Routes>
         </main>
         <footer>

@@ -8,7 +8,7 @@ const getAll = async () => {
 }
 
 const getById = async (id) => {
-    const currentPost = doc(db, 'Post', id);
+    const currentPost = doc(db, 'Posts', id);
     return getDoc(currentPost);
 }
 
@@ -23,12 +23,12 @@ const create = async (data) => {
 }
 
 const update = async (id, data) => {
-    const currentPostRef = doc(db, 'Post', id);
+    const currentPostRef = doc(db, 'Posts', id);
     return updateDoc(currentPostRef, data);
 }
 
 const deletePost = async (id) => {
-    const currentPostRef = doc(db, 'Post', id);
+    const currentPostRef = doc(db, 'Posts', id);
     deleteDoc(currentPostRef);
 }
 

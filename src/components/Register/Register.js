@@ -13,6 +13,8 @@ export const Register = ({
     onClose
 }) => {
     const navigate = useNavigate();
+        const { user } = useAuthContext();
+
     const { login } = useAuthContext();
     const passwordRegEx = /^.*(?=.*\d)(?=.*[a-zA-Z]).*$/;
     const emailRegex = /^.+@.+\..+$/;
@@ -65,13 +67,17 @@ export const Register = ({
         emailValidator();
         passwordValidator();
         repassValidator();
+        cityValidator();
+        petNameValidator();
+        firstNameValidator();
+        firstNameValidator();
         if (!hasErrors()) {
             try {
-                const newUser = await authService.register(email, password, firstName, lasttName, userName, city, petName);
+                await authService.register(email, password, firstName, lasttName, userName, city, petName);
                 const userInfo = {
-                    id: newUser.user.uid,
-                    email: newUser.user.email,
-                    token: newUser.user.accessToken,
+                    id:user.uid,
+                    email: user.email,
+                    token: user.accessToken,
 
                     myPageView: 'own'
                 }
@@ -81,18 +87,22 @@ export const Register = ({
                 // console.log(err.message);
                 if (err.message === 'Firebase: Error (auth/email-already-in-use).') {
                     setErrors(oldState => {
+                        alert('Email is already in use')
                         return { ...oldState, email: { message: 'Email is already in use', valid: false } }
                     })
                 } else if (err.message === 'Firebase: Error (auth/invalid-email).') {
                     setErrors(oldState => {
+                        alert('Please enter a valid email')
                         return { ...oldState, email: { message: 'Please enter a valid email', valid: false } }
                     })
                 } else if (err.message === 'Last name is required'||err.message==='Last name must be bellow 50 symbols') {
                     setErrors(oldState=>{
+                        alert('Please enter valid User Name' )
                         return { ...oldState, userName: { message: 'Please enter valid User Name' } }
                     })
                 } else if (err.message === 'Username is required'|| err.message ==='Username must be bellow 50 symbols') {
                     setErrors(oldState=>{
+                        alert('Please enter valid User Name' )
                         return { ...oldState, userName: { message: 'Please enter valid User Name' } }
                     })
                 } else {

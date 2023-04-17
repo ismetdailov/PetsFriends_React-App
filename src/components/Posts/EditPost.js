@@ -2,10 +2,10 @@ import './CreatePost.css';
 import React, { useEffect, useState } from 'react';
 import logo from '../ComponentImages/logo1.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHouseCrack, faCat, faPaw, faMessage, faBell, faArrowDownShortWide, faRectangleXmark, faFileImage, faLocationDot, faFaceGrinTongue } from "@fortawesome/free-solid-svg-icons"
+import {  faRectangleXmark, faFileImage, faLocationDot, faFaceGrinTongue } from "@fortawesome/free-solid-svg-icons"
 import postImage from '../ComponentImages/alvan-nee-T-0EW-SEbsE-unsplash.jpg'
 import * as postService from '../services/post';
-import { useNavigate } from 'react-router-dom';
+import { useActionData, useNavigate, useParams } from 'react-router-dom';
 import { useAuthContext } from '../context/authContext'
 import { storage } from '../../config/firebaseConfig'
 import * as authService from '../services/authenticationService';
@@ -17,11 +17,87 @@ import {
     list,
 } from "firebase/storage";
 import { v4 } from "uuid";
-export const CreatePost = ({
+export const EditPost = ({
     onClose
 }) => {
+        const[values, setValues] = useState({
+            title:'',
+            imageUrl:[],
+        })
+    
+    
+        const {id} = useParams()
 
 
+    const [myposts, setMyPosts] = useState([])
+    useEffect(() => {
+        postService
+            .getById(id)
+            .then((res) => {
+                const postData = res.data();
+                setValues(postData);
+                setMyPosts(postData.imageUrl)
+            })
+            .catch((err) => {
+                setHasCatchedError(true);
+                console.log(err);
+            });
+    }, [id]);
+
+    const editPostHandler = async (ev) => {
+        ev.preventDefault();
+        if (values.imageUrl.length!==myposts.length) {
+            const uploadFile = async () => {
+                if (files.length <= 0) return;
+                Array.from(files, (image) => {
+                    const imageRef = ref(storage, `Posts-Images/${image.name + v4()}`);
+                    uploadBytes(imageRef, image).then(async (snapshot) => {
+                        await getDownloadURL(imageRef, snapshot.ref).then(async (url) => {
+                            console.log(url + 'this is your url')
+                            images.push(url)
+                            setImageUrls(images)
+                            setValues(imageUrls(images))
+                        });
+                    });
+                })
+            };
+        }
+
+        if (!hasErrors()) {
+            try {
+                const newPostData = {
+                    
+                        title: values.title,
+                        imageUrl: values.imageUrl,
+                        ownerId: user.id,
+                        creator: user.email,
+                        ownerUsername: currentUser.stringValue,
+                  
+                };
+                await postService.update(id, newPostData);
+                navigate(-1);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    };
+
+
+    useEffect(() => {
+        try {
+
+            postService.update().then((res) => {
+                const userPosts = res.docs.map((post) => ({
+                    ...post.data(),
+                    id: post.id
+                }))
+                setMyPosts(userPosts)
+            })
+        } catch (error) {
+            setHasCatchedError(true)
+            console.log(error)
+        }
+    }, )
 
 
     // const [imageUpload, setImageUpload] = useState(null);
@@ -80,7 +156,6 @@ export const CreatePost = ({
     const createPostHandler = async (ev) => {
         ev.preventDefault();
         getTime();
-        titleValidator();
         if (inputValues.title === '' && imageUrls.length <= 0) {
             setErrors((oldState) => {
                 return {
@@ -96,10 +171,10 @@ export const CreatePost = ({
                     imageUrl: imageUrls,
                     ownerId: user.id,
                     creator: user.email,
-                     time: time,
+                    // time: time,
                     ownerUsername: currentUser.stringValue,
                 });
-                navigate(-1)
+                navigate(`/Home`)
                 onClose()
             } catch (err) {
                 setHasCatchedError(true);
@@ -125,8 +200,6 @@ export const CreatePost = ({
     const cancelImage = (e) => {
         setFile([]);
     }
-
-
 
 
 
@@ -161,63 +234,22 @@ export const CreatePost = ({
 
     const titleInputOnChange = (ev) => {
         const value = ev.target.value;
+      values.title=value
         setInputValues((oldState) => ({ ...oldState, title: value }));
     };
 
 
+const deletePost = async()=>{
+    try{
+        await postService.deletePost(id)
+        navigate(-1)
+    }catch(error){
+        console.log(error);
+    }
+}
 
 
 
-
-
-    const titleValidator = () => {
-        const title = inputValues.title;
-        if (title === '') {
-            setErrors((oldState) => {
-                return {
-                    ...oldState,
-                    title: { message: 'Title is required', valid: false },
-                };
-            });
-        } else {
-            setErrors((oldState) => {
-                return { ...oldState, title: { message: '', valid: true } };
-            });
-        }
-    };
-
-
-
-
-
-    const imageValidator = () => {
-        const imageUrl = inputValues.image;
-        if (imageUrl === '') {
-            setErrors((oldState) => {
-                return {
-                    ...oldState,
-                    image: { message: 'Image url is required', valid: false },
-                };
-            });
-        } else if (!imageUrlRegEx.test(imageUrl)) {
-            setErrors((oldState) => {
-                return {
-                    ...oldState,
-                    image: {
-                        message: 'Please enter a valid url',
-                        valid: false,
-                    },
-                };
-            });
-        } else {
-            setErrors((oldState) => {
-                return {
-                    ...oldState,
-                    image: { message: '', valid: true },
-                };
-            });
-        }
-    };
 
     function hasErrors() {
         if (
@@ -247,12 +279,12 @@ export const CreatePost = ({
 
         <>
             <form method="POST"
-                onSubmit={createPostHandler}>
+                onSubmit={editPostHandler}>
                 <div className='overlay' >
                     <div className='modalContainer' >
                         <div className='postcontainer'>
                             <div className='closeContainer'>
-                                <span className='closeIcon' onClick={onClose} >
+                                <span className='closeIcon' onClick={()=>navigate(-1)}>
                                     <FontAwesomeIcon icon={faRectangleXmark} />
                                 </span>
                             </div>
@@ -265,7 +297,8 @@ export const CreatePost = ({
                                         <textarea placeholder='write your post here....'
                                             onChange={titleInputOnChange}
                                             id="title"
-                                            onBlur={titleValidator}></textarea>
+                                            value={values.title}
+                                            ></textarea>
                                     </label>
                                 </div>
                                 <div className='closeContainer'>
@@ -274,9 +307,17 @@ export const CreatePost = ({
                                     </span>
                                 </div>
                                 <div className='uploadImagesContainer' onChange={uploadFile}>
+                                <div className='uploadImagesContainer' onChange={uploadFile}>
                                     {files.map((file, key) => {
                                         return (
                                             <img className='postImage12' key={key} src={URL.createObjectURL(file)} alt="" />
+                                        )
+                                    })}
+                                </div>
+                             
+                                    {values.imageUrl?.map((url) => {
+                                        return (
+                                            <img className='postImage12'  src={url} alt="" />
                                         )
                                     })}
                                 </div>
@@ -298,19 +339,16 @@ export const CreatePost = ({
                                         multiple
                                         type="file"
                                         onChange={handlerFile}
-                                    // onChange={(event) => {
-                                    //     setImageUpload(event.target.files[0]);
-                                    //     uploadFile();
-                                    // }} icon={faFileImage}
-
+                              
                                     />
                                     <FontAwesomeIcon className='locationIcon' icon={faLocationDot} />
                                     <FontAwesomeIcon className='emojiIcon' icon={faFaceGrinTongue} />
                                 </div>
 
                                 <div className='btnsContainer'>
-                                    <button className='cancelBtn' onClick={onClose}>Cancel</button>
-                                    <button className='createPostBtn1' onClick={createPostHandler} >Create</button>
+                                    <button className='cancelBtn' onClick={()=>navigate(-1)}>Cancel</button>
+                                    <button className='createPostBtn1' onClick={editPostHandler} >Create</button>
+                                    <button className='createPostBtn1' onClick={deletePost} >Delete this post</button>
                                 </div>
                             </div>
                         </div>
@@ -320,4 +358,4 @@ export const CreatePost = ({
         </>
     );
 }
-export default CreatePost;
+export default EditPost;
