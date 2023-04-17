@@ -9,6 +9,18 @@ import { Link } from "react-router-dom"
 export const MyProfile = ({
 
 }) => {
+
+
+
+
+
+
+
+
+
+
+
+
     return (
 
         <>
@@ -33,7 +45,7 @@ export const MyProfile = ({
                         <div className='leftContainer'>
                             <ul className='leftUl'>
                                 <li>fasddasf</li>
-                                <li>dasdasd</li>
+                                <li>dasdasda</li>
                                 <li>asdasdasd</li>
                             </ul>
                         </div>

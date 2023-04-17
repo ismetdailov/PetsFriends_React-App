@@ -9,8 +9,6 @@ import * as authService from '../services/authenticationService';
 import { UserActions } from '../Home/GuestHome/UserAction';
 //  import { Link } from 'react-router-dom';
 export const Register = ({
-    user,
-    onClick,
     onActionClick,
     onClose
 }) => {
@@ -31,6 +29,27 @@ export const Register = ({
             message: '',
             valid: true
         },
+        firstName: {
+            message: '',
+            valid: true
+        },
+        lasttName: {
+            message: '',
+            valid: true
+        },
+        userName: {
+            message: '',
+            valid: true
+        },
+        city: {
+            message: '',
+            valid: true
+        },
+        petName: {
+            message: '',
+            valid: true
+        }
+
     });
     const [hasCathedError, setHasCatchedError] = useState(false);
     const [email, setEmail] = useState('');
@@ -48,12 +67,12 @@ export const Register = ({
         repassValidator();
         if (!hasErrors()) {
             try {
-                const newUser = await authService.register(email, password);
+                const newUser = await authService.register(email, password, firstName, lasttName, userName, city, petName);
                 const userInfo = {
                     id: newUser.user.uid,
                     email: newUser.user.email,
                     token: newUser.user.accessToken,
-                    
+
                     myPageView: 'own'
                 }
                 login(userInfo);
@@ -67,6 +86,14 @@ export const Register = ({
                 } else if (err.message === 'Firebase: Error (auth/invalid-email).') {
                     setErrors(oldState => {
                         return { ...oldState, email: { message: 'Please enter a valid email', valid: false } }
+                    })
+                } else if (err.message === 'Last name is required'||err.message==='Last name must be bellow 50 symbols') {
+                    setErrors(oldState=>{
+                        return { ...oldState, userName: { message: 'Please enter valid User Name' } }
+                    })
+                } else if (err.message === 'Username is required'|| err.message ==='Username must be bellow 50 symbols') {
+                    setErrors(oldState=>{
+                        return { ...oldState, userName: { message: 'Please enter valid User Name' } }
                     })
                 } else {
                     setHasCatchedError(true);
@@ -91,47 +118,77 @@ export const Register = ({
             setErrors(oldState => {
                 return { ...oldState, userName: { message: 'Username is required', valid: false } }
             })
-        }else if(userName.length>50){
+        } else if (userName.length > 50) {
             setErrors(oldState => {
                 return { ...oldState, userName: { message: 'Username must be bellow 50 symbols', valid: false } }
             })
-        }else{
+        } else {
             setErrors(oldState => {
-                return { ...oldState, userName: { message: '', valid: false } }
+                return { ...oldState, userName: { message: '', valid: true } }
             })
         }
     }
     const lastNameValidator = () => {
-        if (userName.length < 1) {
+        if (lasttName.length < 1) {
             setErrors(oldState => {
                 return { ...oldState, userName: { message: 'Last name is required', valid: false } }
             })
-        }else if(lasttName.length>50){
+        } else if (lasttName.length > 50) {
             setErrors(oldState => {
                 return { ...oldState, userName: { message: 'Last name must be bellow 50 symbols', valid: false } }
             })
-        }else{
+        } else {
             setErrors(oldState => {
-                return { ...oldState, userName: { message: '', valid: false } }
+                return { ...oldState, userName: { message: '', valid: true } }
             })
         }
     }
     const cityValidator = () => {
-        if (userName.length < 1) {
+        if (city.length < 1) {
             setErrors(oldState => {
                 return { ...oldState, userName: { message: 'city is required', valid: false } }
             })
-        }else if(city.length>50){
+        } else if (city.length > 50) {
             setErrors(oldState => {
                 return { ...oldState, userName: { message: 'city must be bellow 50 symbols', valid: false } }
             })
-        }else{
+        } else {
             setErrors(oldState => {
-                return { ...oldState, userName: { message: '', valid: false } }
+                return { ...oldState, userName: { message: '', valid: true } }
             })
         }
     }
-
+    const firstNameValidator = () => {
+        if (firstName.length < 1) {
+            setErrors(oldState => {
+                return { ...oldState, userName: { message: 'city is required', valid: false } }
+            })
+        } else if (firstName.length > 50) {
+            setErrors(oldState => {
+                return { ...oldState, userName: { message: 'city must be bellow 50 symbols', valid: false } }
+            })
+        } else {
+            setErrors(oldState => {
+                return { ...oldState, userName: { message: '', valid: true } }
+            })
+        }
+    }
+    const petNameValidator = () => {
+        if (petName.length < 1) {
+            setErrors(oldState => {
+                alert('city is required')
+                return { ...oldState, userName: { message: 'city is required', valid: false } }
+            })
+        } else if (petName.length > 50) {
+            setErrors(oldState => {
+                return { ...oldState, userName: { message: 'city must be bellow 50 symbols', valid: false } }
+            })
+        } else {
+            setErrors(oldState => {
+                return { ...oldState, userName: { message: '', valid: true } }
+            })
+        }
+    }
     const passwordValidator = () => {
         if (password.length < 6) {
             setErrors(oldState => {
@@ -205,7 +262,14 @@ export const Register = ({
     }
 
     function hasErrors() {
-        if (errors.email.valid && errors.password.valid && errors.repass.valid) {
+        if (errors.email.valid &&
+            errors.password.valid &&
+            errors.repass.valid &&
+            errors.city.valid &&
+            errors.petName.valid &&
+            errors.userName.valid &&
+            errors.firstName.valid &&
+            errors.lasttName.valid) {
             return false;
         }
         return true;
@@ -236,9 +300,9 @@ export const Register = ({
                                         <label><b>First Name</b></label>
                                         <i className='emailIcon'> <FontAwesomeIcon icon={faEnvelopeCircleCheck} /></i>
                                     </div>
-                                    <input className='email' placeholder="Enter email address here..."
+                                    <input className='email' placeholder="Enter first name here..."
                                         aria-errormessage={!errors.email.valid ? 'Wrong First Name' : ''}
-                                        onBlur={emailValidator}
+                                        onBlur={firstNameValidator}
                                         onChange={firstNameHandler}
                                     ></input>
                                 </div>
@@ -248,8 +312,8 @@ export const Register = ({
                                         <label><b>Last Name</b></label>
                                         <i className='emailIcon'> <FontAwesomeIcon icon={faEnvelopeCircleCheck} /></i>
                                     </div>
-                                    <input className='email' placeholder="Enter email address here..."
-                                        aria-errormessage={!errors.email.valid ? 'Wrong First Name' : ''}
+                                    <input className='email' placeholder="Enter last name here..."
+                                        aria-errormessage={!errors.email.valid ? 'Wrong Last Name' : ''}
                                         onBlur={lastNameValidator}
                                         onChange={lastNameHandler}
                                     ></input>
@@ -260,8 +324,8 @@ export const Register = ({
                                         <label><b>Username</b></label>
                                         <i className='emailIcon'> <FontAwesomeIcon icon={faEnvelopeCircleCheck} /></i>
                                     </div>
-                                    <input className='email' placeholder="Enter email address here..."
-                                        aria-errormessage={!errors.email.valid ? 'Wrong First Name' : ''}
+                                    <input className='email' placeholder="Enter your username here..."
+                                        aria-errormessage={!errors.email.valid ? 'Wrong User Name' : ''}
                                         onBlur={userNameValidator}
                                         onChange={userNameHandler}
                                     ></input>
@@ -272,7 +336,11 @@ export const Register = ({
                                         <label><b>City</b></label>
                                         <i className='emailIcon'> <FontAwesomeIcon icon={faEnvelopeCircleCheck} /></i>
                                     </div>
-                                    <input className='email' placeholder="Enter your city here..."></input>
+                                    <input className='email' placeholder="Enter your city here..."
+                                        aria-errormessage={!errors.email.valid ? 'Wrong city' : ''}
+                                        onBlur={cityValidator}
+                                        onChange={cityHandler}
+                                    ></input>
                                 </div>
                                 <div className='emaillContainer'>
                                     <div className='llabelContainer'>
@@ -280,10 +348,10 @@ export const Register = ({
                                         <label><b>Name of your pet!</b></label>
                                         <i className='emailIcon'> <FontAwesomeIcon icon={faEnvelopeCircleCheck} /></i>
                                     </div>
-                                    <input className='email' placeholder="Enter email address here..."
-                                        aria-errormessage={!errors.email.valid ? 'Wrong First Name' : ''}
-                                        onBlur={cityValidator}
-                                        onChange={cityHandler}
+                                    <input className='email' placeholder="Enter name of your pet here..."
+                                        aria-errormessage={!errors.email.valid ? 'Wrong Pet name' : ''}
+                                        onBlur={petNameValidator}
+                                        onChange={petNameHandler}
                                     ></input>
                                 </div>
                                 <div className='emaillContainer'>

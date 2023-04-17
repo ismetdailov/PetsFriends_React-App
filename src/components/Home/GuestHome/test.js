@@ -1,58 +1,81 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
 import * as postService from '../../services/post';
 import { Link } from 'react-router-dom';
-
+import React, { useState, useEffect } from 'react';
+import {db} from '../../../config/firebaseConfig'
+import { collection, getDocs,limit } from 'firebase/firestore';
+import * as authService from '../../services/authenticationService';
 
 const Test = () => {
-    const [posts, setPosts] = useState([]);
 
+    const [Listofcolors, setListofcolors] = useState([]);
+    const [lastKey, setLastKey] = useState();
+    const [isLoading, setLoading] = useState(false);
+    const [isEmpty, setEmpty] = useState(false);
+  
+    const [users, setUsers] = useState([]);
+ const colorRef= users
     useEffect(() => {
+      authService.listAllUsers().then((res) => {
+            const data = res.docs.map((user) => ({
+                ...user.data(),
+                id: user.id,
+            }))
+            setUsers(data)
+        })
+    })
+ 
 
-
-           
-            postService.getAll().then((res) => {
-                const data = res.docs.map((doc) => ({
-                    ...doc.data(),
-                    id: doc.id,
-                }));
-                setPosts(data);
-    console.log(data[0].Title)
-            });
+  
+    useEffect(() => {
+      colorRef.limit(3).get().then((collections)=>{
+        updateState(collections);
+      });
     }, []);
-
-
-
-   //  const transofrmContent = (content) => {
-   //      const transformed = content.split('<br>').join(' ');
-   //      const short = transformed.slice(0, 700);
-   //      return `${short}...`;
-   //  };
-
-   //  const mappedPosts = posts.map((e) => ({
-   //      ...e,
-   //      content: transofrmContent(e.content),
-   //  }));
-
-   //  const content = mappedPosts.map((e) => {
-   //      return (
-   //          <section key={e.id} className={['post-section']}>
-   //              <div className={['img-wrapper']}>
-   //                  <img src={e.imageUrl} alt={`${e.destination}-img`} />
-   //              </div>
-   //              <article className={['content-section']}>
-   //                  <h2>{e.title}</h2>
-   //                  <p>{e.content}</p>
-   //                  <Link to={`/post-details/${e.id}`}>Read the post</Link>
-   //              </article>
-   //          </section>
-   //      );
-   //  });
-
-    return (
-        <>  
-        </>
-    );
-};
+  
+    const updateState = (collections) =>{
+      const isCollectionEmpty = collections.size === 0;
+      if(!isCollectionEmpty){
+        const colors= collections.docs.map((color) => color.data()); 
+        const Lastdoc = collections.docs[collections.docs.length -1];
+        setListofcolors((Listofcolors)=>[...Listofcolors, ...colors]);
+        setLastKey(Lastdoc);
+      }else {
+        setEmpty(true);
+      }
+      setLoading(false);
+    }
+  
+    const fetchMorePosts = () =>{
+      setLoading(true);
+      colorRef.startAfter(lastKey).limit(3).get().then((collections)=>{
+        updateState(collections);
+      });
+    }
+  
+    if(Listofcolors.length === 0){
+      return <h1> Loading... </h1>
+    }
+  
+    return (<>
+      <div className="App">
+        <h1> Infinite scroll in Firebase (firestore) and React.js  </h1>
+        <div className="wrapper">
+          {Listofcolors.map((item,index)=>( 
+            <div key={index} >
+              <div className="wrapper__list">
+                <p><b> Title : </b> {item.title}</p>
+                <p><b> Description : </b>{item.description}</p>
+                <p><b> Date : </b>{item.datetime?.toDate().toLocaleDateString("en-US")}</p>
+              </div>    
+            </div>
+          ))} 
+          {isLoading && <h1> Loading... </h1>}
+          {!isLoading && !isEmpty && <button onClick={() => fetchMorePosts()} className="btn__default">More Posts</button> }
+          {isEmpty && <h1> There are no more data </h1>}
+        </div>
+      </div>
+    </>)
+     
+}
 
 export default Test;

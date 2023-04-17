@@ -16,7 +16,8 @@
     border-color: rgb(12, 210, 35);
 
 }
-
+.fileUpload{
+}
 .headerContainer {
     background-color: rgb(255, 255, 0);
     margin: auto;
@@ -118,6 +119,22 @@
     margin: auto;
     width: 70%;
     padding-left: 5%;
+}
+.uploadImageContainer{
+    margin: auto;
+    width: 40%;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 0);
+    border-style: double;
+    border-width: 10px;
+    text-align: center;
+}
+.uploadImageContainer:hover{
+    background-color:rgb(13, 209, 29);
+}
+.uploadImage{
+    margin: auto;
+    width: 100%;
 }
 .cancelBtn{
     width: 45%;

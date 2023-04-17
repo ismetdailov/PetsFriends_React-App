@@ -8,6 +8,7 @@ import * as postService from '../services/post';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../context/authContext'
 import { storage } from '../../config/firebaseConfig'
+import * as authService from '../services/authenticationService';
 import {
     ref,
     uploadBytes,
@@ -23,10 +24,9 @@ export const CreatePost = ({
 
 
 
-    const [imageUpload, setImageUpload] = useState(null);
+    // const [imageUpload, setImageUpload] = useState(null);
     const [imageUrls, setImageUrls] = useState([]);
-
-    
+    const [currentUser, setCurrentUser] = useState()
 
 
 
@@ -43,98 +43,132 @@ export const CreatePost = ({
     };
 
     const [inputValues, setInputValues] = useState(formInititalState);
-
+    const [time, setTime] = useState()
     const errorsInitialState = {
         title: {
             mesage: '',
             valid: true,
-        },
-        content: {
-            mesage: '',
-            valid: true,
-        },
-        destination: {
-            mesage: '',
-            valid: true,
-        },
-        image: {
-            mesage: '',
-            valid: true,
-        },
+        }
+
     };
+    const getTime = () => {
+
+        const today = new Date(),
+
+            curTime = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+
+
+        setTime(curTime);
+    }
+
+    useEffect(() => {
+        try {
+            authService.getUserById(user.id).then((res) => {
+                const currentUser =  res._document.data.value.mapValue.fields.userName
+                    console.log(currentUser.stringValue +'this is e')
+
+                setCurrentUser(currentUser)
+            })
+
+        } catch (error) {
+            setHasCatchedError(true)
+            console.log(error)
+        }
+    })
     const [errors, setErrors] = useState(errorsInitialState);
 
     const createPostHandler = async (ev) => {
         ev.preventDefault();
-
+           getTime();
         titleValidator();
-        contentValidator();
-        destinationValidator();
-        imageValidator();
-
+        if (inputValues.title === '' && imageUrls.length <= 0) {
+            setErrors((oldState) => {
+                return {
+                    ...oldState,
+                    title: { message: 'some error', valid: false },
+                };
+            });
+        }
         if (!hasErrors()) {
             try {
                 await postService.create({
                     title: inputValues.title,
-                    content: inputValues.content,
-                    destination: inputValues.destination,
-                    imageUrl: inputValues.image,
+                    imageUrl: imageUrls,
                     ownerId: user.id,
                     creator: user.email,
+                    // time: time,
+                    ownerUsername: currentUser.stringValue,
                 });
-                navigate('/my-profile');
+                navigate(`/Home`)
+                onClose()
             } catch (err) {
                 setHasCatchedError(true);
                 console.log(err);
             }
         }
     };
-    const imagesListRef = ref(storage, "images/");
-    const imageUrl = '';
-    const uploadFile = () => {
-        if (imageUpload == null) return;
-        const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-        inputValues.image = ref(storage, `images/${imageUpload.name + v4()}`);
-        inputValues.content = "sdasdasd"
-        inputValues.title = "sdadasd"
-        inputValues.destination = "sdadasdasd"
-        uploadBytes(imageRef, imageUpload).then((snapshot) => {
-            getDownloadURL(snapshot.ref).then((url) => {
-                imageUrl = url
-                setImageUrls((prev) => [...prev, url]);
-            });
-        });
+
+
+    const [files, setFile] = useState([]);
+    const handlerFile = (e) => {
+        console.log(e.target.files);
+
+        let allfiles = []
+        for (let i = 0; i < e.target.files.length; i++) {
+            allfiles.push(e.target.files[i]);
+        }
+        if (allfiles.length > 0) {
+            setFile(allfiles);
+        }
     };
 
+    const cancelImage = (e) => {
+        setFile([]);
+    }
 
-    useEffect(() => {
-        listAll(imagesListRef).then((response) => {
-            response.items.forEach((item) => {
-                getDownloadURL(item).then((url) => {
-                    setImageUrls((prev) => [...prev, url]);
+
+
+
+
+
+    let images = []
+
+
+    const uploadFile = async () => {
+        if (files.length <= 0) return;
+        Array.from(files, (image) => {
+            const imageRef = ref(storage, `Posts-Images/${image.name + v4()}`);
+            uploadBytes(imageRef, image).then(async (snapshot) => {
+                await getDownloadURL(imageRef, snapshot.ref).then(async (url) => {
+                    console.log(url + 'this is your url')
+                    images.push(url)
+                    setImageUrls(images)
+
                 });
             });
-        });
-    }, []);
+        })
+    };
+    // useEffect(() => {
+    //     listAll(imagesListRef).then((response) => {
+    //         response.items.forEach((item) => {
+    //             getDownloadURL(item).then((url) => {
+    //                 setImageUrls((prev) => [...prev, url]);
+    //             });
+    //         });
+    //     });
+    // }, []);
+
+
     const titleInputOnChange = (ev) => {
         const value = ev.target.value;
         setInputValues((oldState) => ({ ...oldState, title: value }));
     };
 
-    const contentInputOnChange = (ev) => {
-        const value = ev.target.value;
-        setInputValues((oldState) => ({ ...oldState, content: value }));
-    };
 
-    const destinationInputOnChange = (ev) => {
-        const value = ev.target.value;
-        setInputValues((oldState) => ({ ...oldState, destination: value }));
-    };
 
-    const imageInputOnChange = (ev) => {
-        const value = ev.target.value;
-        setInputValues((oldState) => ({ ...oldState, image: value }));
-    };
+
+
+
 
     const titleValidator = () => {
         const title = inputValues.title;
@@ -152,43 +186,9 @@ export const CreatePost = ({
         }
     };
 
-    const contentValidator = () => {
-        const content = inputValues.content;
-        if (content === '') {
-            setErrors((oldState) => {
-                return {
-                    ...oldState,
-                    content: { message: 'Content is required', valid: false },
-                };
-            });
-        } else {
-            setErrors((oldState) => {
-                return { ...oldState, content: { message: '', valid: true } };
-            });
-        }
-    };
 
-    const destinationValidator = () => {
-        const destination = inputValues.destination;
-        if (destination === '') {
-            setErrors((oldState) => {
-                return {
-                    ...oldState,
-                    destination: {
-                        message: 'Destination is required',
-                        valid: false,
-                    },
-                };
-            });
-        } else {
-            setErrors((oldState) => {
-                return {
-                    ...oldState,
-                    destination: { message: '', valid: true },
-                };
-            });
-        }
-    };
+
+
 
     const imageValidator = () => {
         const imageUrl = inputValues.image;
@@ -221,17 +221,11 @@ export const CreatePost = ({
 
     function hasErrors() {
         if (
-            inputValues.content === '' ||
-            inputValues.destination === '' ||
-            inputValues.image === '' ||
             inputValues.title === ''
         ) {
             return true;
         } else if (
-            errors.title.valid &&
-            errors.content.valid &&
-            errors.destination.valid &&
-            errors.image.valid
+            errors.title.valid
         ) {
             return false;
         }
@@ -274,31 +268,49 @@ export const CreatePost = ({
                                             onBlur={titleValidator}></textarea>
                                     </label>
                                 </div>
-                                <div className='uploadImagesContainer' onChange={uploadFile}>
-                                    {imageUrls.map((url) => {
-                                        return <img className='postImage12' src={url} alt="" />;
-                                    })}
-                                    ;
-
+                                <div className='closeContainer'>
+                                    <span className='closeIcon' onClick={cancelImage} >
+                                        <FontAwesomeIcon icon={faRectangleXmark} />
+                                    </span>
                                 </div>
+                                <div className='uploadImagesContainer' onChange={uploadFile}>
+                                    {files.map((file, key) => {
+                                        return (
+                                            <img className='postImage12' key={key} src={URL.createObjectURL(file)} alt="" />
+                                        )
+                                    })}
+                                </div>
+                                {files.length > 0 &&
+
+                                    <div className='uploadImageContainer'>
+                                        <span className='uploadImage' onClick={uploadFile} >Upload Images</span>
+                                    </div>
+
+                                }
                                 <div className='iconsContainer1'>
+
                                     <FontAwesomeIcon className='fileIcon' type="file"
-                                        onChange={(event) => {
-                                            setImageUpload(event.target.files[0]);
-                                        }} icon={faFileImage} />
-                                    <input
+
+                                        icon={faFileImage}
+                                    />
+                                    <input className='fileUpload'
+                                        accept="image/*"
+                                        multiple
                                         type="file"
-                                        onChange={(event) => {
-                                            setImageUpload(event.target.files[0]);
-                                            uploadFile();
-                                        }}
+                                        onChange={handlerFile}
+                                    // onChange={(event) => {
+                                    //     setImageUpload(event.target.files[0]);
+                                    //     uploadFile();
+                                    // }} icon={faFileImage}
+
                                     />
                                     <FontAwesomeIcon className='locationIcon' icon={faLocationDot} />
                                     <FontAwesomeIcon className='emojiIcon' icon={faFaceGrinTongue} />
                                 </div>
+
                                 <div className='btnsContainer'>
-                                    <button className='cancelBtn'>Cancel</button>
-                                    <button className='createPostBtn1' >Create</button>
+                                    <button className='cancelBtn' onClick={onClose}>Cancel</button>
+                                    <button className='createPostBtn1' onClick={createPostHandler} >Create</button>
                                 </div>
                             </div>
                         </div>
