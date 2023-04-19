@@ -150,7 +150,7 @@ export const EditPost = ({
             setHasCatchedError(true)
             console.log(error)
         }
-    })
+    },[])
     const [errors, setErrors] = useState(errorsInitialState);
 
     const createPostHandler = async (ev) => {

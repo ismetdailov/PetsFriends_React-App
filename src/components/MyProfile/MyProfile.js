@@ -148,7 +148,7 @@ export const MyProfile = ({
                                                         () => onActionClick(UserActions.EditPost)
                                                     }>
                                                     <Link to={`/Post/Edit/${p.id}`} >
-                                                        <button className='share'onClick={()=>[() => onActionClick(UserActions.EditPost),<Link to={p.id}></Link>]}>Edit Post</button>
+                                                        <button className='share'onClick={()=> onActionClick(UserActions.EditPost)}>Edit Post</button>
                                                     </Link>
                                                     </div>
                                                 </div>

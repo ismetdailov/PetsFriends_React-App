@@ -1,5 +1,24 @@
 # Getting Started with Create React App
 
+
+THis is site about our pets and their friends about fun!
+
+You can open this project on link: https://petsfriends-2cc65.web.app
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
